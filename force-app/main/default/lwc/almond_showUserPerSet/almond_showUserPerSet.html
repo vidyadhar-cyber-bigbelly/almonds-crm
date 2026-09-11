@@ -1,0 +1,18 @@
+<template>
+     <lightning-card title="User Access" icon-name="standard:user">
+          <template if:true={hasPermissionSets}>
+            <lightning-datatable
+                key-field="name"
+                data={data}
+                columns={columns}
+                hide-checkbox-column>
+            </lightning-datatable>
+        </template>
+
+         <template if:false={hasPermissionSets}>
+            <div class="slds-p-around_medium slds-text-color_weak">
+                No permission sets assigned to this user. Please raise for access if needed ra unga.
+            </div>
+        </template>
+     </lightning-card>
+</template>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Testing 1</fullName>
+        <default>false</default>
+        <label>Testing 1</label>
+    </customValue>
+    <customValue>
+        <fullName>Testing 2</fullName>
+        <default>false</default>
+        <label>Testing 2</label>
+    </customValue>
+    <customValue>
+        <fullName>Testing 3</fullName>
+        <default>false</default>
+        <label>Testing 3</label>
+    </customValue>
+    <customValue>
+        <fullName>Testing 4</fullName>
+        <default>false</default>
+        <label>Testing 4</label>
+    </customValue>
+    <customValue>
+        <fullName>Testing 5</fullName>
+        <default>false</default>
+        <label>Testing 5</label>
+    </customValue>
+    <customValue>
+        <fullName>Testing 6</fullName>
+        <default>false</default>
+        <label>Testing 6</label>
+    </customValue>
+    <customValue>
+        <fullName>Testing 7</fullName>
+        <default>false</default>
+        <label>Testing 7</label>
+    </customValue>
+    <masterLabel>Activity Opportunity</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

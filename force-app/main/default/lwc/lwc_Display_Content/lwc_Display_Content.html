@@ -1,0 +1,14 @@
+<template>
+
+    <h1>{text}</h1>
+
+    <lightning-button label="Click this!" onclick={handleClick}></lightning-button>
+
+    <lightning-button label="Clear" onclick={handleRemove}></lightning-button>
+
+    <template lwc:if={message}>
+        <p>{message}</p>
+    </template>
+
+    <lightning-button label="Click to text" onclick={handleClick1}></lightning-button>
+</template>

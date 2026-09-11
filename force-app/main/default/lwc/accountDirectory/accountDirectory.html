@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Account Directory" icon-name="standard:account">
+        <lightning-button label="Load Accounts" slot="actions" onclick={handleLoadAccounts} ></lightning-button>
+        <lightning-datatable data={accounts}></lightning-datatable>
+
+        <template if:true={isLoading}>
+            <p>Loading Accounts...</lightning-spinner></p>
+        </template>
+    </lightning-card>
+</template>

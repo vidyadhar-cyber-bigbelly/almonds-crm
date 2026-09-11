@@ -1,0 +1,31 @@
+<template>
+  
+    <lightning-card>
+        <div class = "slds-p-around_medium">
+            <div class="count-box">
+            <div class="slds-grid  slds-grid_align-center slds-grid_vertical-align-center">
+                <p class = "slds-text-large slds-m-around_medium" >{count}
+            </p>
+            </div> 
+        </div>
+       
+        </div>
+         <div class="slds-grid slds-grid_align-spread slds-grid_vertical_align-center">
+       
+            
+            
+              <div class ="slds-col slds-p-around_medium">
+            <lightning-button name = "click" onclick={onclickhandle} variant ="brand" label = "click">
+            </lightning-button>
+            </div>
+            <div class ="slds-col slds-p-around_medium">
+                <lightning-button name ="reset" label= "reset" variant = "brand" onclick={onResthandle}>
+                </lightning-button>
+         
+         </div>
+         </div>
+
+    </lightning-card>
+
+
+</template>

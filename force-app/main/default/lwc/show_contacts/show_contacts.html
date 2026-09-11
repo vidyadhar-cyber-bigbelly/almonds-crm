@@ -1,0 +1,134 @@
+<template>
+    <lightning-card title = "Contacts" icon-name= "standard:contact">
+        <div class="slds-m-around_medium">
+            <template if:true= {error}>
+                <div class="slds-grid slds-grid_align-center">
+                    <div class="error-box">
+                    <p class="slds-text-color_error">{errormessage}
+                    </p>
+                    </div>
+                </div>
+            </template>
+                
+            <template if:true= {hasContacts}>
+              <div class="slds-grid slds-wrap slds-grid_pull-padded">
+                <template for:each={contacts} for:item="con">
+                   <div key={con.Id} class="slds-col slds-size_1-of-2 slds-p-around_small" >
+                     <div class = "contact-card">
+                        
+
+                            <div class="slds-grid slds-wrap ">
+
+                                <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                    <lightning-input  label= "Name"
+                                       value= {con.Name}
+                                       data-id ={con.Id}
+                                       data-field="Name"
+                                       onchange={fieldChange}>
+                                      
+                                    </lightning-input>
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                    <lightning-input label="Title"
+                                       value={con.Title}
+                                       data-id ={con.Id}
+                                       data-field="Title"
+                                       onchange={fieldChange}>
+                                       
+                                    </lightning-input>
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                    <lightning-input label="Email"
+                                       value={con.Email}
+                                        data-id ={con.Id}
+                                       data-field="Email"
+                                       onchange={fieldChange}>
+                                       
+                                    </lightning-input>
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                    
+                                    <lightning-input  label="Phone"
+                                       value={con.Phone}
+                                       disabled="true"
+                                       data-id ={con.Id}
+                                       data-field="Phone"
+                                       onchange={fieldChange}>
+                                      
+                                    </lightning-input>
+                                </div>
+
+                               <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                 <div class="edit-icon-wrapper">
+        
+                                    <lightning-input
+                                       label="Account Name"
+                                       value={con.AccountName}
+                                       data-id={con.Id}
+                                       data-field="AccountId"
+                                       onchange={accountSearch}
+                                       readonly={con.readonly}>
+                                     </lightning-input>
+                                     <template if:false={con.readonly}>
+                                       <template if:true={hasAccounts}>
+                                        
+                                        <div class="slds-dropdown slds-dropdown_length-5">
+                                            <ul class="slds-listbox slds-listbox_vertical">
+                                            <template for:each={accountOptions} for:item="acc">
+                                               <li key={acc.value}
+                                               data-id={acc.value}
+                                               role="option"
+                                               data-name={acc.label}
+                                               >
+                                               {acc.label} 
+                                               </li >
+                                              
+                                            </template>
+                                            </ul>
+                                        </div>
+
+                                     </template>
+                                     </template>
+
+                                 <lightning-button-icon
+                                         icon-name="utility:edit"
+                                          variant="bare"
+                                        data-id={con.Id}
+                                         onclick={handleEdit}
+                                      alternative-text="Edit">
+                                     </lightning-button-icon>
+
+                                    </div>
+                                 </div>
+
+                                <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                    <lightning-input label="MobilePhone"
+                                       value={con.MobilePhone}
+                                       read-only="true">
+                                       
+                                    </lightning-input>
+                                </div>
+                                </div>
+                        
+                    </div>
+                   </div>
+                </template>
+              </div> 
+            </template>
+        </div>
+        <div class = "slds-grid slds-grid_align-center slda-grid_vertical-align-center">
+            <div class="slds-col slds-p-around_xx-small">
+                <lightning-button label="save" onclick={handleSave} name="save" variant="brand">
+                </lightning-button>
+            </div>
+            <div class="slds-col slds-p-around_xx-small">
+                 <lightning-button label="cancel" onclick={handleCancel} name="cancal" variant="brand">
+                </lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+
+</template>

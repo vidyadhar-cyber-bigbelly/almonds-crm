@@ -1,0 +1,11 @@
+<template>
+    <template if:true={showAlert}>
+        <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+            <span class="slds-assistive-text">warning</span>
+            <span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small" title="Warning">
+                <lightning-icon icon-name="utility:warning" variant="inverse" size="x-small"></lightning-icon>
+            </span>
+            <h2>{bannerMessage}</h2>
+        </div>
+    </template>
+</template>

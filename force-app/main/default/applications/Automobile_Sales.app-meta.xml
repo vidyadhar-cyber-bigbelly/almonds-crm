@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>Sleek_auto_sales_logo_design</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Automobile sales</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Automobile Sales</label>
+    <navType>Standard</navType>
+    <tabs>standard-Lead</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>standard-Opportunity</tabs>
+    <tabs>standard-Quote</tabs>
+    <tabs>standard-Order</tabs>
+    <tabs>standard-Case</tabs>
+    <tabs>Territory__c</tabs>
+    <tabs>Shipment__c</tabs>
+    <tabs>Discount_Request__c</tabs>
+    <tabs>Supplier__c</tabs>
+    <tabs>Inventory__c</tabs>
+    <tabs>Vehicle__c</tabs>
+    <tabs>Part__c</tabs>
+    <tabs>Warranty__c</tabs>
+    <tabs>Service_Ticket__c</tabs>
+    <tabs>Competitor_info__c</tabs>
+    <tabs>standard-Product2</tabs>
+    <tabs>Event_Log__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Automobile_Sales_UtilityBar</utilityBar>
+</CustomApplication>

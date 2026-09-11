@@ -1,0 +1,65 @@
+<template>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+        <div class="slds-modal__container">
+
+            <!-- HEADER -->
+            <header class="slds-modal__header">
+                <h2 class="slds-text-heading_medium">New Access Request</h2>
+            </header>
+
+            <!-- BODY -->
+            <div class="slds-modal__content slds-p-around_medium">
+
+                <!-- STEP 1 -->
+                <template if:true={isStepOne}>
+                    <lightning-radio-group
+                        label="Who is this request for?"
+                        options={requestOptions}
+                        value={requestType}
+                        onchange={handleTypeChange}>
+                    </lightning-radio-group>
+                </template>
+
+                <!-- STEP 2 -->
+                <template if:true={isStepTwo}>
+                    <lightning-radio-group
+                        label="What do you want to do?"
+                        options={actionOptions}
+                        value={selectedAction}
+                        onchange={handleActionChange}>
+                    </lightning-radio-group>
+                </template>
+
+                <!-- STEP 3 -->
+                <template if:true={isStepThree}>
+                   <div>HEllo</div> 
+                </template> 
+
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="slds-modal__footer">
+                <template if:true={isStepTwo}>
+                    <lightning-button label="Back" onclick={goBack}></lightning-button>
+                </template>
+                <template if:true={isStepThree}>
+                    <lightning-button label="Back" onclick={goBack}></lightning-button>
+                </template>
+
+                <template if:true={isStepOne}>
+                    <lightning-button variant="brand" label="Next" onclick={goToStepTwo} disabled={isNextDisabled}></lightning-button>
+                </template>
+
+                <template if:true={isStepTwo}>
+                    <lightning-button variant="brand" label="Continue" onclick={handleContinue}></lightning-button>
+                </template>
+
+                <lightning-button label="Cancel" onclick={closeModal}></lightning-button>
+            </footer>
+
+        </div>
+    </section>
+
+    <!-- Backdrop -->
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

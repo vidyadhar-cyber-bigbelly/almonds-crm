@@ -1,0 +1,101 @@
+<template>
+    <lightning-card title="User Management" icon-name="standard:user">
+        <div class="slds-p-around_medium">
+
+            <!-- Admins -->
+            <lightning-menu-divider></lightning-menu-divider>
+            <h2 class="slds-text-heading_small slds-m-bottom_x-small slds-align_absolute-center">Admins</h2>
+            <lightning-menu-divider></lightning-menu-divider>
+            <template if:true={adminDisplay}>
+                <template for:each={adminDisplay} for:item="admin">
+                    <div key={admin.Id} class="slds-grid slds-grid_vertical-align-center slds-m-bottom_small">
+                        <lightning-icon icon-name="standard:avatar" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                        <span class="slds-m-right_small">{admin.Name}</span>
+                        <lightning-badge 
+                            label={admin.statusLabel}
+                            class={admin.statusClass}>
+                        </lightning-badge>
+                    </div>
+                </template>
+            </template>
+
+            <div class="slds-m-top_small slds-align_absolute-center">
+            
+            </div>
+            <lightning-menu-divider></lightning-menu-divider>
+
+
+            <!--<lightning-divider class="slds-m-vertical_medium"></lightning-divider>-->
+           <!-- <lightning-menu-divider></lightning-menu-divider>-->
+
+            <!-- Active Users -->
+            <h2 class="slds-text-heading_small slds-m-bottom_x-small slds-align_absolute-center">Active Users</h2>
+            <lightning-menu-divider></lightning-menu-divider>
+            <!-- MultiPickList
+            <lightning-dual-listbox
+                name="activeUsers"
+                label="Select Active Users"
+                source-label="Available"
+                selected-label="Selected"
+                options={activeUserOptions}
+                value={selectedActiveUsers}
+                onchange={handleActiveSelect}>
+            </lightning-dual-listbox>
+            -->
+            <!-- Datatable -->
+            <div class="slds-p-around_medium">
+            <lightning-datatable
+                key-field="Id"
+                data={activeRowsToDisplay}
+                columns={columns}
+                hide-checkbox-column={hideCheckboxColumn}
+                onrowselection={handleRowSelection}
+            ></lightning-datatable>
+        </div>
+
+            <div class="slds-m-top_small slds-align_absolute-center">
+                <lightning-button variant="destructive" label="Deactivate Selected" onclick={handleDeactivate} class="slds-m-right_small"></lightning-button>
+            </div>
+            <div class="slds-m-top_small slds-align_absolute-center">
+            
+            </div>
+
+             <!--<lightning-divider class="slds-m-vertical_medium"></lightning-divider>-->
+              <lightning-menu-divider></lightning-menu-divider>
+
+            <!-- Inactive Users -->
+            <h2 class="slds-text-heading_small slds-m-bottom_x-small slds-align_absolute-center">Inactive Users</h2>
+            <lightning-menu-divider></lightning-menu-divider>
+            <!-- Multipicklist
+            <lightning-dual-listbox
+                name="inactiveUsers"
+                label="Select Inactive Users"
+                source-label="Available"
+                selected-label="Selected"
+                options={inactiveUserOptions}
+                value={selectedInactiveUsers}
+                onchange={handleInactiveSelect}>
+            </lightning-dual-listbox>
+            -->
+            <!-- Datatable -->
+            <div class="slds-p-around_medium">
+            <lightning-datatable
+                key-field="Id"
+                data={inActiveRowsToDisplay}
+                columns={columns}
+                hide-checkbox-column={hideCheckboxColumn}
+                onrowselection={handleInactiveRowSelection}
+            ></lightning-datatable>
+            </div>
+
+            <div class="slds-m-top_small slds-align_absolute-center">
+                <lightning-button variant="brand" label="Activate Selected" onclick={handleActivate}></lightning-button>
+            </div>
+
+            <template if:true={loading}>
+                <lightning-spinner alternative-text="Processing..." size="medium"></lightning-spinner>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

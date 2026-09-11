@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>a_modern_minimalist</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Mana JIRA ra idhi (ClickUp Ungamma)</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>true</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>JIRA</label>
+    <navType>Standard</navType>
+    <tabs>JIRA__c</tabs>
+    <tabs>Access_Request_J__c</tabs>
+    <tabs>Event_Log__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>JIRA_UtilityBar</utilityBar>
+</CustomApplication>

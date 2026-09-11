@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>Salesfoce_raise_your_Voice</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Raise Your Voice to get Access</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Access Request System</label>
+    <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>DataOps</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>DataOps</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>DataOps Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>DataOps Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Director User AL</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Director User AL</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Management User AL</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Management User AL</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Operations Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Operations Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Operations User AL</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Operations User AL</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales Ops</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales Ops</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales Ops Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales Ops Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales Rep</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales Rep</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales User AL</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Sales User AL</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Super Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Super Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Vice President</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Access_Request_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Access_Request_J__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Vice President</profile>
+    </profileActionOverrides>
+    <tabs>User_Information__c</tabs>
+    <tabs>Access_Request_J__c</tabs>
+    <tabs>AL_Approver_Mapping_V__c</tabs>
+    <tabs>AL_Access_Request_Line_Items_V__c</tabs>
+    <tabs>Event_Log__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Access_Request_System_UtilityBar</utilityBar>
+</CustomApplication>

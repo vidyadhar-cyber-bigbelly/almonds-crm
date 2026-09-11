@@ -1,0 +1,18 @@
+.banner {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+    color: white;
+    font-size: 24px;
+}
+
+.amber {
+    background-color: #d8a91bf7;
+}
+
+.red {
+    background-color: #f01912;
+}

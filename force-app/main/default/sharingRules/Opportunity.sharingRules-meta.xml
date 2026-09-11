@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>Share_to_Operations_Teams</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing Opportunity records to Operation teams</description>
+        <label>Share to Operations Teams</label>
+        <sharedTo>
+            <group>NE_Operations</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>Sales_Team_NE</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Share_to_Operations_Teams_SW</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares opportunity records to Operation teams</description>
+        <label>Share to Operations Teams</label>
+        <sharedTo>
+            <group>SW_Operations</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>Sales_Team_SW</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

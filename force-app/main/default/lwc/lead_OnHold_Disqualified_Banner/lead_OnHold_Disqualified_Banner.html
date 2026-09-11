@@ -1,0 +1,13 @@
+<template>
+    <template if:true={isOnHold}>
+        <div class="banner amber">
+            On Hold
+        </div>
+    </template>
+
+    <template if:true={isDisqualified}>
+        <div class="banner red">
+            Disqualified
+        </div>
+    </template>
+</template>

@@ -1,0 +1,17 @@
+<template>
+    <lightning-card>
+    
+       <div>
+         Hello ,{name}    
+       </div>    
+    <div class="slds-p-around_medium">
+     <lightning-input type="text" value={OppName}  name="name" label="OPPName" onchange ={handleonchangeinput} onblur={handleInputBlur}>
+
+      </lightning-input>
+     </div>
+     <div>
+         {displayname} 
+       </div>
+
+</lightning-card>
+</template>

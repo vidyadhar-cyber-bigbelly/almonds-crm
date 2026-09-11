@@ -1,0 +1,35 @@
+.custom-container{
+	color : black;
+	.user-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers the entire list horizontally */
+    margin-top: 20px;
+}
+
+.user-row {
+    display: flex;
+    align-items: center; /* vertically align icon, name, badge */
+    gap: 15px; /* space between columns */
+    margin-bottom: 10px; /* space between rows */
+    justify-content: center; /* center each row */
+}
+
+.icon-column {
+    width: 40px; /* fixed width so all icons align */
+    display: flex;
+    justify-content: center;
+}
+
+.name-column {
+    min-width: 200px; /* adjusts based on longest name */
+    text-align: left;
+}
+
+.badge-column {
+    width: 80px; /* fixed width for badges */
+    display: flex;
+    justify-content: center;
+}
+
+}

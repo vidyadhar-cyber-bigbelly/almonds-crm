@@ -1,0 +1,24 @@
+* {
+    .contact-card {
+    border: 1px solid #dddbda;
+    border-radius: 4px;
+    padding: 16px;
+    background: #ffffff;
+}
+ .edit-icon-wrapper {
+    position: relative;
+}
+
+.edit-icon-wrapper lightning-button-icon {
+    position: absolute;
+    bottom: 0.3rem;
+    right: 0.3rem;
+}   
+.slds-dropdown {
+    width: 100%;        /* ✅ matches parent width */
+    min-width: unset;   /* ✅ removes SLDS default min-width */
+    position: absolute; /* ✅ sits directly below input */
+   
+    
+}
+}
