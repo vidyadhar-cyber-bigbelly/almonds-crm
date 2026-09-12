@@ -21,7 +21,6 @@ jobs:
 
       - name: Evaluate Manifest and Run Validation
         run: |
-          # Locate the package.xml file
           MANIFEST_PATH="manifest/package.xml"
           if [ ! -f "$MANIFEST_PATH" ]; then
             MANIFEST_PATH="package.xml"
@@ -32,9 +31,11 @@ jobs:
             exit 1
           fi
 
-          # Read the package.xml to check for Apex
-          APEX_CHANGED=$(grep -E '<name>ApexClass</name>|<name>ApexTrigger</name>' $MANIFEST_PATH || true)
+          APEX_CHANGED=$(grep -E '<name>ApexClass</name>\vert{}<name>ApexTrigger</name>'$MANIFEST_PATH || true)
           TEST_CLASSES=$(cat tests.txt 2>/dev/null | tr '\n' ' ' | xargs || true)
+          
+          # Temporarily disable crash-on-error so we can capture the JSON even if tests fail
+          set +e 
           
           if [ -n "$APEX_CHANGED" ]; then
             if [ -z "$TEST_CLASSES" ]; then
@@ -42,14 +43,93 @@ jobs:
               exit 1
             else
               echo "✅ Apex detected. Validating manifest with tests: $TEST_CLASSES"
-              sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --dry-run --test-level RunSpecifiedTests --tests $TEST_CLASSES
+              sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --dry-run --test-level RunSpecifiedTests --tests$TEST_CLASSES --json > validate-result.json
             fi
           else
             if [ -n "$TEST_CLASSES" ]; then
               echo "✅ No Apex in manifest, but tests provided. Validating with: $TEST_CLASSES"
-              sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --dry-run --test-level RunSpecifiedTests --tests $TEST_CLASSES
+              sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --dry-run --test-level RunSpecifiedTests --tests$TEST_CLASSES --json > validate-result.json
             else
               echo "✅ No Apex in manifest and tests.txt is empty. Validating declarative changes only."
-              sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --dry-run
+              sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --dry-run --json > validate-result.json
             fi
           fi
+          
+          # Re-enable crash-on-error
+          set -e
+
+      - name: Generate Validation Metrics Dashboard
+        if: always()
+        run: |
+          cat << 'EOF' > parse-metrics.js
+          const fs = require('fs');
+          if (!fs.existsSync('validate-result.json')) {
+             console.log('No validation results found.');
+             process.exit(0);
+          }
+          const data = JSON.parse(fs.readFileSync('validate-result.json', 'utf8'));
+          
+          let md = '## 🚀 Salesforce Validation Summary\n\n';
+          
+          if (data.status !== 0 && data.message) {
+              md += '### ❌ Validation Error\n';
+              md += '```text\n' + data.message + '\n```\n\n';
+          }
+          
+          const details = data.result?.details || {};
+          const runTestResult = details.runTestResult || {};
+          const codeCoverage = runTestResult.codeCoverage || [];
+          
+          let successes = details.componentSuccesses || [];
+          if (!Array.isArray(successes)) successes = [successes];
+          
+          let failures = details.componentFailures || [];
+          if (!Array.isArray(failures)) failures = [failures];
+          
+          md += '### 📦 Component Summary\n';
+          md += '- **Total Components Validated:** ' + successes.length + '\n';
+          if (failures.length > 0) {
+              md += '- **Total Components Failed:** ' + failures.length + ' ❌\n';
+          }
+          md += '\n';
+          
+          if (runTestResult.numTestsRun > 0) {
+              md += '### 🧪 Apex Test Summary\n';
+              md += '- **Tests Run:** ' + runTestResult.numTestsRun + '\n';
+              md += '- **Passed:** ' + (runTestResult.numTestsRun - (runTestResult.numFailures || 0)) + '\n';
+              md += '- **Failed:** ' + (runTestResult.numFailures || 0) + '\n';
+              md += '- **Total Time:** ' + runTestResult.totalTime + ' ms\n\n';
+              
+              if (codeCoverage.length > 0) {
+                  md += '### 📊 Apex Code Coverage\n';
+                  md += '| Class/Trigger | Coverage % | Status |\n';
+                  md += '|---|---|---|\n';
+                  codeCoverage.forEach(cov => {
+                      let total = cov.numLocations || 0;
+                      let uncovered = cov.numLocationsNotCovered || 0;
+                      let covered = total - uncovered;
+                      let percent = total > 0 ? Math.round((covered / total) * 100) : 0;
+                      let status = percent >= 75 ? '🟢 Pass' : '🔴 Fail';
+                      md += '| ' + cov.name + ' | ' + percent + '% | ' + status + ' |\n';
+                  });
+                  md += '\n';
+              }
+          }
+          
+          fs.writeFileSync(process.env.GITHUB_STEP_SUMMARY, md, {flag: 'a'});
+          EOF
+          node parse-metrics.js
+
+      - name: Enforce Final Status
+        run: |
+          cat << 'EOF' > enforce-status.js
+          const fs = require('fs');
+          if (fs.existsSync('validate-result.json')) {
+              const data = JSON.parse(fs.readFileSync('validate-result.json', 'utf8'));
+              if (data.status !== 0) {
+                  console.error('❌ Validation failed according to Salesforce CLI.');
+                  process.exit(1);
+              }
+          }
+          EOF
+          node enforce-status.js
