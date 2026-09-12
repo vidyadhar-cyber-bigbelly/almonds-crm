@@ -1,11 +1,14 @@
 name: Deploy to PDE1
 
 on:
-  push:
+  pull_request:
+    types: [ closed ]
     branches: [ PDE1 ]
 
 jobs:
   deploy:
+    # This line ensures it ONLY runs if the PR was merged, ignoring closed/rejected PRs
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
