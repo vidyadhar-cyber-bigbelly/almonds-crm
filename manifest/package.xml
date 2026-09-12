@@ -2,7 +2,7 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
 		<members>userManagementTable</members>
-		<name>CustomLabels</name>
+		<name>CustomLabel</name>
 	</types>
 	<version>67.0</version>
 </Package>
