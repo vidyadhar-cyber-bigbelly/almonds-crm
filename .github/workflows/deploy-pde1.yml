@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    # This line ensures it ONLY runs if the PR was merged, ignoring closed/rejected PRs
+    # Only run if the PR was merged
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
@@ -22,14 +22,25 @@ jobs:
           echo "${{ secrets.SFDX_AUTH_URL_PDE1 }}" > sfdx_auth
           sf org login sfdx-url -f sfdx_auth -a TargetOrg
 
-      - name: Evaluate Apex and Deploy
+      - name: Evaluate Manifest and Deploy
         run: |
+          # Locate the package.xml file
+          MANIFEST_PATH="manifest/package.xml"
+          if [ ! -f "$MANIFEST_PATH" ]; then
+            MANIFEST_PATH="package.xml"
+          fi
+          
+          if [ ! -f "$MANIFEST_PATH" ]; then
+            echo "❌ ERROR: No package.xml found."
+            exit 1
+          fi
+
           TEST_CLASSES=$(cat tests.txt 2>/dev/null | tr '\n' ' ' | xargs || true)
           
           if [ -n "$TEST_CLASSES" ]; then
-            echo "✅ Deploying with tests: $TEST_CLASSES"
-            sf project deploy start --target-org TargetOrg --test-level RunSpecifiedTests --tests $TEST_CLASSES
+            echo "✅ Deploying manifest with tests: $TEST_CLASSES"
+            sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --test-level RunSpecifiedTests --tests $TEST_CLASSES
           else
             echo "✅ Deploying declarative changes only."
-            sf project deploy start --target-org TargetOrg
+            sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH
           fi
