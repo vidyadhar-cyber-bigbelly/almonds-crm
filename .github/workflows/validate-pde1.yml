@@ -1,0 +1,45 @@
+name: Validate PR to PDE1
+
+on:
+  pull_request:
+    branches: [ PDE1 ]
+
+jobs:
+  validate-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Salesforce CLI
+        run: npm install -g @salesforce/cli
+
+      - name: Authenticate to PDE1
+        run: |
+          echo "${{ secrets.SFDX_AUTH_URL_PDE1 }}" > sfdx_auth
+          sf org login sfdx-url -f sfdx_auth -a TargetOrg
+
+      - name: Evaluate Apex and Run Validation
+        run: |
+          APEX_CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -E '\.cls$|\.trigger$' || true)
+          TEST_CLASSES=$(cat tests.txt 2>/dev/null | tr '\n' ' ' | xargs || true)
+          
+          if [ -n "$APEX_CHANGED" ]; then
+            if [ -z "$TEST_CLASSES" ]; then
+              echo "❌ ERROR: Apex changes detected but tests.txt is empty."
+              exit 1
+            else
+              echo "✅ Apex detected. Validating with tests: $TEST_CLASSES"
+              sf project deploy start --target-org TargetOrg --dry-run --test-level RunSpecifiedTests --tests $TEST_CLASSES
+            fi
+          else
+            if [ -n "$TEST_CLASSES" ]; then
+              echo "✅ No Apex changed, but tests provided. Validating with: $TEST_CLASSES"
+              sf project deploy start --target-org TargetOrg --dry-run --test-level RunSpecifiedTests --tests $TEST_CLASSES
+            else
+              echo "✅ No Apex changed and tests.txt is empty. Validating declarative changes only."
+              sf project deploy start --target-org TargetOrg --dry-run
+            fi
+          fi

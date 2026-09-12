@@ -1,0 +1,32 @@
+name: Deploy to PDE1
+
+on:
+  push:
+    branches: [ PDE1 ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Salesforce CLI
+        run: npm install -g @salesforce/cli
+
+      - name: Authenticate to PDE1
+        run: |
+          echo "${{ secrets.SFDX_AUTH_URL_PDE1 }}" > sfdx_auth
+          sf org login sfdx-url -f sfdx_auth -a TargetOrg
+
+      - name: Evaluate Apex and Deploy
+        run: |
+          TEST_CLASSES=$(cat tests.txt 2>/dev/null | tr '\n' ' ' | xargs || true)
+          
+          if [ -n "$TEST_CLASSES" ]; then
+            echo "✅ Deploying with tests: $TEST_CLASSES"
+            sf project deploy start --target-org TargetOrg --test-level RunSpecifiedTests --tests $TEST_CLASSES
+          else
+            echo "✅ Deploying declarative changes only."
+            sf project deploy start --target-org TargetOrg
+          fi
