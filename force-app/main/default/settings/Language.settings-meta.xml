@@ -8,6 +8,7 @@
     <enableLocalNamesForStdObjects>false</enableLocalNamesForStdObjects>
     <enableLocaleInsensitiveFiltering>false</enableLocaleInsensitiveFiltering>
     <enablePlatformLanguages>false</enablePlatformLanguages>
-    <enableTranslationWorkbench>false</enableTranslationWorkbench>
+    <enableTranslationWorkbench>true</enableTranslationWorkbench>
+    <enableTranslationWorkbenchConnectAPI>false</enableTranslationWorkbenchConnectAPI>
     <useLanguageFallback>false</useLanguageFallback>
 </LanguageSettings>
