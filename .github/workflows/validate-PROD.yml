@@ -1,0 +1,55 @@
+name: Validate PR to PROD
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Salesforce CLI
+        run: npm install -g @salesforce/cli
+
+      - name: Authenticate to PROD
+        run: |
+          echo "${{ secrets.SFDX_AUTH_URL_PDE2 }}" > sfdx_auth
+          sf org login sfdx-url -f sfdx_auth -a TargetOrg
+
+      - name: Evaluate Manifest and Run Validation
+        run: |
+          # Locate the package.xml file
+          MANIFEST_PATH="manifest/package.xml"
+          if [ ! -f "$MANIFEST_PATH" ]; then
+            MANIFEST_PATH="package.xml"
+          fi
+          
+          if [ ! -f "$MANIFEST_PATH" ]; then
+            echo "❌ ERROR: No package.xml found."
+            exit 1
+          fi
+
+          # Read the package.xml to check for Apex
+          APEX_CHANGED=$(grep -E '<name>ApexClass</name>|<name>ApexTrigger</name>' $MANIFEST_PATH || true)
+          TEST_CLASSES=$(cat tests.txt 2>/dev/null | tr '\n' ' ' | xargs || true)
+          
+          if [ -n "$APEX_CHANGED" ]; then
+            if [ -z "$TEST_CLASSES" ]; then
+              echo "❌ ERROR: Apex components found in package.xml, but tests.txt is empty."
+              exit 1
+            else
+              echo "✅ Apex detected. Validating manifest with tests: $TEST_CLASSES"
+              sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --dry-run --test-level RunSpecifiedTests --tests $TEST_CLASSES
+            fi
+          else
+            if [ -n "$TEST_CLASSES" ]; then
+              echo "✅ No Apex in manifest, but tests provided. Validating with: $TEST_CLASSES"
+              sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --dry-run --test-level RunSpecifiedTests --tests $TEST_CLASSES
+            else
+              echo "✅ No Apex in manifest and tests.txt is empty. Validating declarative changes only."
+              sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --dry-run
+            fi
+          fi
