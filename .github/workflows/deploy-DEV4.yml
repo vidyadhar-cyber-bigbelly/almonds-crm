@@ -1,9 +1,9 @@
-name: Deploy to PROD
+name: Deploy to DEV4
 
 on:
   pull_request:
     types: [ closed ]
-    branches: [ main ]
+    branches: [ DEV4 ]
 
 jobs:
   deploy:
@@ -17,9 +17,9 @@ jobs:
       - name: Install Salesforce CLI
         run: npm install -g @salesforce/cli
 
-      - name: Authenticate to PROD
+      - name: Authenticate to DEV4
         run: |
-          echo "${{ secrets.SFDX_AUTH_URL_PDE2 }}" > sfdx_auth
+          echo "${{ secrets.SFDX_AUTH_URL_DEV4 }}" > sfdx_auth
           sf org login sfdx-url -f sfdx_auth -a TargetOrg
 
       - name: Evaluate Manifest and Deploy
