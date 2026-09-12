@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
-        <fullName>ALMD_Account_Manager_error</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Account Manager error</shortDescription>
-        <value>The Owner of this account does not have Account Manager permission assigned. Please get this assigned or change the ownership for this account.</value>
-    </labels>
-    <labels>
         <fullName>userManagementTable</fullName>
         <language>en_US</language>
         <protected>false</protected>
