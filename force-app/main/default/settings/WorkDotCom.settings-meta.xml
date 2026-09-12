@@ -4,7 +4,9 @@
     <enableProfileSkillsAddFeedPost>false</enableProfileSkillsAddFeedPost>
     <enableProfileSkillsAutoSuggest>false</enableProfileSkillsAutoSuggest>
     <enableProfileSkillsUsePlatform>false</enableProfileSkillsUsePlatform>
+    <enableWorkBadgeDefRestrictPref>false</enableWorkBadgeDefRestrictPref>
     <enableWorkCanvasPref>false</enableWorkCanvasPref>
     <enableWorkCertification>false</enableWorkCertification>
     <enableWorkCertificationNotification>false</enableWorkCertificationNotification>
+    <enableWorkThanksPref>true</enableWorkThanksPref>
 </WorkDotComSettings>

@@ -91,7 +91,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>GatewayTokenEncrypted</field>
+                <field>GatewayToken</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

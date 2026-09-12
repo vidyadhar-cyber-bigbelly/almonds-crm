@@ -1,0 +1,25 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" controller="MDF_Book_Type_Controller">
+    
+	<aura:attribute name="selectedBookType"  type="String" default=""/>
+    <aura:attribute name="description"       type="String" default=""/>
+    <aura:attribute name="bookTypeOptions"   type="List"   default="[]"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+            <lightning:select 
+                        name="bookType"
+                        label="Book Type"
+                        value="{!v.selectedBookType}"
+                        required="true">
+                        
+                        <!-- Default empty option -->
+                        <option value="">--Select--</option>
+                        
+                        <!-- Loop through picklist options -->
+                        <aura:iteration items="{!v.bookTypeOptions}" var="option">
+                            <option value="{!option.value}">{!option.label}</option>
+                        </aura:iteration>
+                        
+                    </lightning:select>
+             
+</aura:component>

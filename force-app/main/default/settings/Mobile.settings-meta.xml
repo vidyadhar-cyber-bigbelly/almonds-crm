@@ -4,13 +4,13 @@
         <enableDashboardIPadApp>true</enableDashboardIPadApp>
     </dashboardMobile>
     <enableConfigureMobileHome>false</enableConfigureMobileHome>
-    <enableDRLOnMobile>false</enableDRLOnMobile>
     <enableEnhancedContactsOnMobile>false</enableEnhancedContactsOnMobile>
     <enableEnhancedReportsOnMobile>true</enableEnhancedReportsOnMobile>
     <enableEnhancedSalesMobileBuilder>true</enableEnhancedSalesMobileBuilder>
     <enableEnhancedSalesMobileExp>true</enableEnhancedSalesMobileExp>
     <enableImportContactFromDevice>true</enableImportContactFromDevice>
     <enableLandscapeSupportOnPhone>false</enableLandscapeSupportOnPhone>
+    <enableOfflineDraftsEnabled>true</enableOfflineDraftsEnabled>
     <enablePopulateNameManuallyInToday>false</enablePopulateNameManuallyInToday>
     <enableS1EncryptedStoragePref2>true</enableS1EncryptedStoragePref2>
     <enableS1OfflinePref>true</enableS1OfflinePref>

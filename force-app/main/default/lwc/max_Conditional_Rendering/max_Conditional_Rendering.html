@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Conditional Rendering">
+    <div class="slds-p-around_medium">
+    <lightning-input type="checkbox" label="Click Here" onchange={handleChange}></lightning-input>
+    <template if:true={showContent}>
+        <p> Showing the content </p>
+    </template>
+    <template if:false={showContent}>
+        <p> Hiding the content</p>
+    </template>
+    </div>
+    </lightning-card>
+</template>

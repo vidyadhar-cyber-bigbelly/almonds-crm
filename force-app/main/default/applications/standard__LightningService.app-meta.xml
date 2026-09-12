@@ -8,12 +8,365 @@
     <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
     <label>Service Console</label>
     <navType>Console</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Analytics Cloud Integration User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Analytics Cloud Integration User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Analytics Cloud Security User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Analytics Cloud Security User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>PlatformPortal</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>PlatformPortal</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Authenticated Website</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Authenticated Website</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>B2B Reordering Portal Buyer Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>B2B Reordering Portal Buyer Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Chatter External User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Chatter External User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Custom: Marketing Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Custom: Marketing Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Custom: Sales Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Custom: Sales Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Custom: Support Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Custom: Support Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Cross Org Data Proxy User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Cross Org Data Proxy User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Chatter Free User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Chatter Free User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Chatter Moderator User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Chatter Moderator User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>ContractManager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>ContractManager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Force.com - App Subscription User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Force.com - App Subscription User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>External Identity User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>External Identity User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Customer Portal Manager Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Customer Portal Manager Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Customer Portal Manager Custom</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Customer Portal Manager Custom</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>SolutionManager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>SolutionManager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>StandardAul</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>StandardAul</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Work.com Only User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Energy_Audit_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Energy_Audit__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Work.com Only User</profile>
+    </profileActionOverrides>
     <setupExperience>service</setupExperience>
     <tabs>standard-Case</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
+    <tabs>standard-home</tabs>
     <tabs>standard-Incident</tabs>
     <tabs>standard-Problem</tabs>
     <tabs>standard-ChangeRequest</tabs>
@@ -40,6 +393,9 @@
         </mappings>
         <mappings>
             <tab>standard-Problem</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-home</tab>
         </mappings>
         <mappings>
             <tab>standard-report</tab>

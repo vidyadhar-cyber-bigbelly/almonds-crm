@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Contact Details">
+        <div class="slds-p-horizontal_medium">First Name: {firstname}</div>
+        <div class="slds-p-horizontal_medium">Last Name: {lastname}</div>
+        <lightning-input type="checkbox" onchange={handleChange}></lightning-input>
+        <template if:true = {showDetails}>
+        <div class="slds-p-horizontal_medium">Email: {email}</div>
+        <div class="slds-p-horizontal_medium">Phone: {phone}</div>
+        </template>
+    </lightning-card>
+</template>
