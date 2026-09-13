@@ -47,6 +47,7 @@
     <enableReportEscapeCharsPref>false</enableReportEscapeCharsPref>
     <enableReportHideXlsExportPref>false</enableReportHideXlsExportPref>
     <enableReportInlineEditPref>true</enableReportInlineEditPref>
+    <enableReportInterfacePref>false</enableReportInterfacePref>
     <enableReportNotificationsEnable>true</enableReportNotificationsEnable>
     <enableReportSubOrgEmailPref>false</enableReportSubOrgEmailPref>
     <enableReportingOnSDMPref>false</enableReportingOnSDMPref>

@@ -11,6 +11,11 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>standard__AlmDevops</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__AppLauncher</application>
         <default>false</default>
         <visible>true</visible>
@@ -189,7 +194,7 @@
         <layout>BusinessBrand-Business Brand Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>CalcMatrixColumnRange-Decision Matrix Column Range Layout</layout>
+        <layout>CalcMatrixColumnRange-Calculation Matrix Column Range Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CalcProcStepRelationship-Expression Set Step Relationship Layout</layout>
@@ -256,6 +261,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>DigitalWallet-Digital Wallet Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DocumentCategory-Document Category Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DocumentChecklistItem-Document Checklist Item Layout</layout>
@@ -411,7 +419,7 @@
         <layout>ThreatDetectionFeedback-Threat Detection Feedback Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>UserAlt-User Profile Layout</layout>
+        <layout>UniversalAnomalyEventStore-Universal Anomaly Event Store Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>UserProvAccount-User Provisioning Account Layout</layout>

@@ -12,9 +12,9 @@
     <caseMergeInLightning>false</caseMergeInLightning>
     <closeCaseThroughStatusChange>false</closeCaseThroughStatusChange>
     <defaultCaseFeedLayoutOn>false</defaultCaseFeedLayoutOn>
-    <defaultCaseOwner>maruthi.vidyadhar@ac2.com</defaultCaseOwner>
+    <defaultCaseOwner>vidyadhar@almd.stage.crm.in</defaultCaseOwner>
     <defaultCaseOwnerType>User</defaultCaseOwnerType>
-    <defaultCaseUser>maruthi.vidyadhar@ac2.com</defaultCaseUser>
+    <defaultCaseUser>vidyadhar@almd.stage.crm.in</defaultCaseUser>
     <emailToCase>
         <enableEmailToCase>false</enableEmailToCase>
     </emailToCase>

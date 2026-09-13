@@ -11,6 +11,11 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>standard__AlmDevops</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__AppLauncher</application>
         <default>false</default>
         <visible>false</visible>
@@ -126,7 +131,7 @@
         <flow>sfdc_default_ReportExport_Protection_Flow</flow>
     </flowAccesses>
     <layoutAssignments>
-        <layout>CalcMatrixColumnRange-Decision Matrix Column Range Layout</layout>
+        <layout>CalcMatrixColumnRange-Calculation Matrix Column Range Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>InterestTag-Interest Tag Layout</layout>
@@ -148,9 +153,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>TagCategoryAssignment-Tag Category Assignment Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>UserAlt-User Profile Layout</layout>
     </layoutAssignments>
     <userLicense>Salesforce Integration</userLicense>
     <userPermissions>

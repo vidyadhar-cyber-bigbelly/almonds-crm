@@ -124,10 +124,10 @@
             <quickActionName>Task.Defer</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
-            <quickActionName>Task.UpdatePriority</quickActionName>
+            <quickActionName>Task.UpdateStatus</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
-            <quickActionName>Task.UpdateStatus</quickActionName>
+            <quickActionName>Task.UpdatePriority</quickActionName>
         </quickActionListItems>
     </quickActionList>
     <relatedContent>
