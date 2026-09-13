@@ -1,0 +1,38 @@
+<template>
+
+    <!-- we cannot call custom event here, bcoz its outside the shadow DOM boundary area -->
+    
+    <!-- red colour box -->
+    <!-- {res}: defined in JS, to store the value received from custom event -->
+    <!-- ondemo={handleGrandDemo}: composed and bubbles true, bcoz its within boundary but above the parent -->
+    <!-- {handleGrandDemo}: custom event handler, receives the value and store in 'res' property -->
+    <div ondemo={handleGrandDemo} class="slds-box slds-theme_error">
+        GrandParent Has Received: {res}
+
+        <!-- call parent: orange box + green box + white box+button(child comp) -->
+        <c-lwc_ten_parent></c-lwc_ten_parent>
+
+    </div>
+
+</template>
+
+
+<!--
+
+bubbles:true => <c-lwc_ten_parent ondemo={handleGrandDemo}></c-lwc_ten_parent>
+bubbles:true, composed:true => receive above the <c-lwc_ten_parent></c-lwc_ten_parent> tag, within boundary area
+
+** Custom Event Moves Only in UPWARD Direction, SIBILINGS, DOWNWARD not allowed
+
+<Div> </Div>  -> wont work -> not enclosing shadow dom
+Div red
+
+    <Div> </Div>  -> wont work -> not enclosing shadow dom
+    Div orange
+        Div green 
+            Shadow DOM
+        Div
+    Div
+
+Div
+-->

@@ -1,0 +1,13 @@
+<template>
+    <p> Hi, I am child </p>
+    <!-- onclick: DOM event -->
+    <!-- {handleClick}: DOM event handler -> called when button is clicked, and will create & dispatch custom event -->
+    <lightning-button label="Click ME" onclick={handleClick}></lightning-button>
+</template>
+
+
+<!-- 
+1. PTC -> Property -> we define properties in child html, we will make them public at child JS, and assign value from parent by calling child.
+
+2. CTP -> Event -> when any DOM event occures at child HTML, we will create and dispatch custom event inside DOM event handler at child JS, parent HTML will receive custom event, parent JS will execute it.
+-->

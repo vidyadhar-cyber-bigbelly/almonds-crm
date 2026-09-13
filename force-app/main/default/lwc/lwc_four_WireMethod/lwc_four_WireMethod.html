@@ -1,0 +1,44 @@
+<template>
+
+    <!-- if data is there: display it in table -->
+    <template lwc:if={resultList}>
+        <!-- slds-table_striped: makes alternate rows are of same colour -->
+        <table class="slds-table slds-table_bordered slds-table_col-bordered slds-table_striped">
+            <thead>
+                <!-- first row has column headings -->
+                <tr>
+                    <th> Name </th>
+                    <th> Stage Name </th>
+                    <th> Close Date </th>
+                    <th> Amount </th>
+                    <th> Commission </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- to display list of opportunity records, we must have multiple rows -->
+                <!-- for(DataType VariableName : array/List) => for(Opportunity opp : resultList) -->
+                <!-- {forItem.FieldApiName} => ex: {opp.Name}  => when fetching existing fields data -->
+                <!-- {forItem.UserDefinedName} => ex: {opp.opportunityName}  => when adding extra columns in the UI -->
+                <!-- we can use combination of both also {forItem.FieldApiName} and {forItem.UserDefinedName} -->
+                <template for:each={resultList} for:item="opp">
+                    <tr key={opp.opportunityId}>
+                        <td>{opp.opportunityName}</td>
+                        <td>{opp.opportunityStageName}</td>
+                        <td>{opp.opportunityCloseDate}</td>
+                        <td>{opp.opportunityAmount}</td>
+                        <td>{opp.opportunityCommission}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </template>
+
+    <!-- else if error is there: display the error -->
+    <!-- in a red coloured-box, from error's body we are displaying error message -->
+    <template lwc:elseif={errorMsg}>
+        <div class="slds-box slds-theme_error">
+            Error Occured: {errorMsg.body.message}
+        </div>
+    </template>
+
+</template>

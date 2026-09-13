@@ -1,0 +1,16 @@
+<template>
+    <h1>Hello LWC!</h1>
+
+    <p>Name: {name}</p>
+    <p>City: {city}</p>
+
+
+    <template if:true={isAdmin}>
+        <p>You have admin access</p>
+    </template>
+
+    <template if:false={isAdmin}>
+        <p>No Admin Access</p>
+    </template>
+
+</template>

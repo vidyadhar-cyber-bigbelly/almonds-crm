@@ -1,0 +1,22 @@
+<template>
+    <!-- onselect: DOM event, occures when any of the below item is selected -->
+    <!-- {handleSelect}: defined in JS, create and dispatch the custom event and pass 'name' of the item -->
+    <lightning-vertical-navigation onselect={handleSelect}>
+
+        <!-- label: visible in the UI -->
+        <!-- name: we will pass to parent via custom event -->
+
+        <lightning-vertical-navigation-section label="Basic Programs">
+            <lightning-vertical-navigation-item label="Display Message" name="dispMsg"></lightning-vertical-navigation-item>
+            <lightning-vertical-navigation-item label="Simple Calculator" name="simpCal">
+            </lightning-vertical-navigation-item>
+        </lightning-vertical-navigation-section>
+
+        <lightning-vertical-navigation-section label="Wire Programs">
+            <lightning-vertical-navigation-item label="Wire Property" name="wireProp"></lightning-vertical-navigation-item>
+            <lightning-vertical-navigation-item label="Wire Method" name="wireM">
+            </lightning-vertical-navigation-item>
+        </lightning-vertical-navigation-section>
+
+    </lightning-vertical-navigation>
+</template>

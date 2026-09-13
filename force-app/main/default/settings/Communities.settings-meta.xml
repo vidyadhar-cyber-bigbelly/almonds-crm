@@ -7,7 +7,7 @@
     <enableExternalAccHierPref>false</enableExternalAccHierPref>
     <enableGuestPermDisOptOutCruc>false</enableGuestPermDisOptOutCruc>
     <enableGuestSecurityOptOutCruc>false</enableGuestSecurityOptOutCruc>
-    <enableInviteChatterGuestEnabled>false</enableInviteChatterGuestEnabled>
+    <enableInviteChatterGuestEnabled>true</enableInviteChatterGuestEnabled>
     <enableNetworksEnabled>false</enableNetworksEnabled>
     <enableOotbProfExtUserOpsEnable>false</enableOotbProfExtUserOpsEnable>
     <enablePRMAccRelPref>false</enablePRMAccRelPref>

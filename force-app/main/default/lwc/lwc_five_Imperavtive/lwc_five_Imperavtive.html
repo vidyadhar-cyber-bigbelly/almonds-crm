@@ -1,0 +1,54 @@
+<template>
+    <!-- onclick={handleWonClick}: when user clicks on 'Won Deals' button, it will call 'handleWonClick' handler method in JS, which will further call apex method to fetch the 'Closed Won' Opportunities -->
+    <!-- onclick={handleLostClick}: when user clicks on 'Lost Deals' button, it will call 'handleLostClick' handler method in JS, which will further call apex method to fetch the 'Closed Lost' Opportunities -->
+    <!-- slot="actions": to place the buttons in the right-top corner of the lightning-card, can be used only within 'lightning-card' -->
+    <lightning-card title="Opportunities Using Imperative Approach" icon-name="standard:opportunity">
+        <lightning-button variant="success" label="Won Deals" slot="actions" onclick={handleWonClick}>
+        </lightning-button>
+        <lightning-button variant="destructive" label="Lost Deals" slot="actions" onclick={handleLostClick}>
+        </lightning-button>
+    </lightning-card>
+
+    <!-- If data is there, then display it inside table -->
+    <template lwc:if={resultList}>
+        <table class="slds-table slds-table_bordered slds-table_col-bordered slds-table_striped">
+            <!-- table headings in first row -->
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Stage Name</th>
+                    <th>Close Date</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <!-- table data in the below rows -->
+            <!-- list of records to display -> multiple rows -->
+            <!-- for(dataType loopItem : array) => for(Opportunity opp : resultList)  -->
+            <!-- IMPERATIVE METHOD: MAY Use the API Names => based on requiement -->
+            <!-- only fetching data: <td>{loopItem.FieldApiName}</td> -->
+            <!-- add extra column, do calculations: <td>{loopItem.UserDefinedFieldName}</td> -->
+            <!-- we can use combination of both also, means using spread operator(...) in JS,
+             write api names for existing fields and do mapping for extra column field -->
+            <!-- key: to avoid duplicay and to make each row unique -> each record has unique Id -->
+            <!-- below we have used Api names, as we are only fetching data -->
+            <tbody>
+                <template for:each={resultList} for:item="opp">
+                    <tr key={opp.Id}>
+                        <td>{opp.Name}</td>
+                        <td>{opp.StageName}</td>
+                        <td>{opp.CloseDate}</td>
+                        <td>{opp.Amount}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </template>
+
+    <!-- else if error is there, then display the error message -->
+    <template lwc:elseif={errorMessage}>
+        <div class="slds-box slds-theme_error">
+            <p>Error Occured: {errorMessage.body.message}</p>
+        </div>
+    </template>
+
+</template>

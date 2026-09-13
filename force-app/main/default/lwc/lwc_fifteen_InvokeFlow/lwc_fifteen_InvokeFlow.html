@@ -1,0 +1,29 @@
+<template>
+    <lightning-input data-name="fname" label="First Name" placeholder="type here..."></lightning-input>
+    <lightning-input data-name="lname" label="Last Name" placeholder="type here..."></lightning-input>
+
+    <lightning-button variant="brand" label="Save" onclick={handleClick}></lightning-button>
+
+    <!-- Invoke/call the Flow, by passing input values -->
+    <!-- showFlowOutput: it will become true upon button click to show the flow output -->
+    <!-- {flowVariables}: list property, stores the flow resource variables, to pass the value/argument -->
+    <!-- onstatuschange: Custom DOM event, give for the flows, occures when flow status changes --> 
+    <lightning-flow flow-api-name="LWC_Flow_Name" if:true={showFlowOutput} flow-input-variables={flowVariables} onstatuschange={handleStatusChange}>
+    </lightning-flow>
+
+</template>
+
+<!-- **** Fetch the input name values from DOM page ****
+
+Way 1: Best Practice
+1. add 'onchange' event in both the input-box's, handle that event in JS, same like simple calculator example.
+2. fetch value from text-box => event.target.value -> O(1), it knows from where to fetch value, without scanning.
+
+Way 2: Avoided
+1. we wont add event handlers inside text-box
+2. we will fetch the values from both the text-boxes upon button click event
+3. inside 'onclick' handler, using querySelector, we will search the text-box and fetch the value
+4. O(n) -> querySelector will search the template(entire HTML elements) to get the value.
+5. custom-attribute: data-name => to identify the text-boxes
+6. data-name: to unify the text-box's.
+-->

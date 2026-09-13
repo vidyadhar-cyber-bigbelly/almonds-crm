@@ -1,0 +1,45 @@
+<template>
+    <lightning-layout>
+        <!-- a single webpage has 12 grids, so to show item labels we will use 3 grids, and to display the output of the selected item we will use 9 grids -->
+
+        <!-- **** Item 1: left side of the webpage -->
+        <!-- we want to display items to the LHS, which is written in child HTML -->
+        <!-- call child HTML, receive the custom event -->
+        <!-- ondemo={handleDemo}: custom event handler -->
+        <lightning-layout-item size="3">
+            <c-lwc_fourteen_-v-n_child ondemo={handleDemo}></c-lwc_fourteen_-v-n_child>
+        </lightning-layout-item>
+
+        <!-- **** Item 2: right side of the webpage -->
+        <!-- display the output of the selected item, by calling the selected item component using kebab case -->
+        <!-- without if-else; it shows all the outputs one after another, the same way we are calling the component -->
+        <!-- we want only one selected component should be called at a time, so we need to add if-else condition -->
+        <!-- dispProperty, calProperty, wirePropProperty, wireMethProperty: not normal properties, getter properties -->
+        <!-- why getter properties??? -> because as per requiremnet when we select next item, then before it shows the output for the next item, it should vanish/remove the existing item output. 
+        And if we use normal property, then it will keep the output of the previously selected item as it is, it wont vanish -->
+        <lightning-layout-item size="9">
+
+            <template lwc:if={dispProperty}>
+                <!-- call item 1 : 'lwc_one_DisplayMessage' component -->
+                <c-lwc_one_-display-message></c-lwc_one_-display-message>
+            </template>
+
+            <template lwc:elseif={calProperty}>
+                <!-- call item 2: 'lwc_two_SimpleCalculator' component -->
+                <c-lwc_two_-simple-calculator></c-lwc_two_-simple-calculator>
+            </template>
+
+            <template lwc:elseif={wirePropProperty}>
+                <!-- call item 3: 'lwc_three_WireProperty' component -->
+                <c-lwc_three_-wire-property></c-lwc_three_-wire-property>
+            </template>
+
+            <template lwc:elseif={wireMethProperty}>
+                <!-- call item 4: 'lwc_four_WireMethod' component -->
+                <c-lwc_four_-wire-method></c-lwc_four_-wire-method>
+            </template>
+
+        </lightning-layout-item>
+
+    </lightning-layout>
+</template>

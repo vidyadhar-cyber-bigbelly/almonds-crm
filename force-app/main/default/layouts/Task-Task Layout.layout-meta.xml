@@ -29,6 +29,14 @@
                 <behavior>Required</behavior>
                 <field>Priority</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Joint_Customer_Visit__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>User__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -112,7 +120,16 @@
             <quickActionName>NewEvent</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
-            <quickActionName>LogACall</quickActionName>
+            <quickActionName>Task.UpdateStatus</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>FeedItem.ContentPost</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>FeedItem.LinkPost</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>FeedItem.PollPost</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
             <quickActionName>NewTask</quickActionName>
@@ -127,7 +144,10 @@
             <quickActionName>Task.UpdatePriority</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
-            <quickActionName>Task.UpdateStatus</quickActionName>
+            <quickActionName>FeedItem.TextPost</quickActionName>
+        </quickActionListItems>
+        <quickActionListItems>
+            <quickActionName>LogACall</quickActionName>
         </quickActionListItems>
     </quickActionList>
     <relatedContent>

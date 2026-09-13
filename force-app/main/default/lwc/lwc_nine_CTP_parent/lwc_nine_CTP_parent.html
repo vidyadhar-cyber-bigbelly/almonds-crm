@@ -1,0 +1,9 @@
+<template>
+     <p> Hi, I am parent </p>
+     <!-- call child and receives the custom event -->
+     <!-- 'demo': custom event name -->
+     <!-- in HTML all events will start with 'on' keyword, ex: onclick, onchange, onselect, onrowselection, etc. -->
+     <!-- so, add 'on' to custom event name => 'ondemo' -->
+     <!-- ondemo: custom event, {handleDemo}: custom event handler (defined in JS) -->
+     <c-lwc_nine_-c-t-p_child ondemo={handleDemo}></c-lwc_nine_-c-t-p_child>
+</template>

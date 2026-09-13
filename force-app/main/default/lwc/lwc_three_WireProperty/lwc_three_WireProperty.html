@@ -1,0 +1,43 @@
+<template>
+
+    <!-- if data is there: display it in table -->
+    <template lwc:if={opportunityList.data}>
+        <!-- slds-table_striped: makes alternate rows are of same colour -->
+        <table class="slds-table slds-table_bordered slds-table_col-bordered slds-table_striped">
+            <thead>
+                <!-- first row has column headings -->
+                <tr>
+                    <th> Name </th>
+                    <th> Stage Name </th>
+                    <th> Close Date </th>
+                    <th> Amount </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- to display list of opportunity records, we must have multiple rows -->
+                <!-- for(DataType VariableName : array/List) => for(Opportunity opp : opportunityList.data) -->
+                <!-- opportunityList.data -> why '.data' -> opportunityList:{data,error} -> object -->   
+                <!-- key={opp.Id}: to make sure each row is unique, Id is unique for each record -->    
+                <!-- {forItem.FieldApiName} => ex: {opp.Name} -->
+                <!-- wire property: strictly use to fetch the existing fields data, thats why we always mention fieldApiName -->      
+                <template for:each={opportunityList.data} for:item="opp">
+                    <tr key={opp.Id}>
+                        <td>{opp.Name}</td>
+                        <td>{opp.StageName}</td>
+                        <td>{opp.CloseDate}</td>
+                        <td>{opp.Amount}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </template>
+
+    <!-- else if error is there: display the error -->
+    <!-- in a red coloured-box, from error's body we are displaying error message -->
+    <template lwc:elseif={opportunityList.error}>
+        <div class="slds-box slds-theme_error">
+            Error Occured: {opportunityList.error.body.message}
+        </div>    
+    </template>
+
+</template>

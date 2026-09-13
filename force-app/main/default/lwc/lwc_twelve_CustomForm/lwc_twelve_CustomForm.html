@@ -1,0 +1,64 @@
+<template>
+
+    <!-- Record View Form : Fetch a specific record -->
+    <!-- We need to mention which fields to fetch -->
+    <!-- it will fetch values in read only form -->
+    <div class="slds-box slds-theme_success">
+        <p style="background-color:black; color:white"> Record View Form </p>
+        <lightning-record-view-form record-id={conId} object-api-name="Contact">
+            <div class="slds-box slds-theme_default">
+                <lightning-output-field field-name="Name"></lightning-output-field>
+                <lightning-output-field field-name="Phone"></lightning-output-field>
+                <lightning-output-field field-name="Email"></lightning-output-field>
+                <lightning-output-field field-name="Birthdate"></lightning-output-field>
+                <lightning-output-field field-name="LeadSource"></lightning-output-field>
+            </div>
+        </lightning-record-view-form>
+    </div>
+
+    <!-- Record Edit Form : Insert or Update the specific record -->
+    <!-- so if we dont provide record Id, it will INSERT new record; ex: record-id={contactId} -->
+    <!-- if we provide record Id, it will UPDATE the specific provided Id's record; ex: record-id={conId}  -->
+    <div class="slds-box slds-theme_error">
+        <p style="background-color:black; color:white"> Record Edit Form </p>
+        <lightning-record-edit-form id="recordViewForm" record-id={contactId} object-api-name="Contact">
+            <div class="slds-box slds-theme_default">
+                <lightning-messages></lightning-messages>
+                <lightning-input-field field-name="FirstName"></lightning-input-field>
+                <lightning-input-field field-name="LastName"></lightning-input-field>
+                <lightning-input-field field-name="Birthdate"></lightning-input-field>
+                <lightning-input-field field-name="Phone"></lightning-input-field>
+                <!--Picklist-->
+                <lightning-input-field field-name="Level__c"></lightning-input-field>
+                <!-- submit -->
+                <lightning-button type="submit" label="Save"></lightning-button>
+            </div>
+        </lightning-record-edit-form>
+    </div>
+
+    <!-- Custom Record Form : Creates Edit(Insert New Record) and Detail(Fetch or Update the Existimg Record) Page -->
+    <!-- we can fetch all OR specific fields(by adding 'fields' attribute) -->
+    <!-- layout-type="Full" or layout-type="Compact" -->
+    <div class="slds-box slds-theme_warning">
+        <p style="background-color:black; color:white"> Custom Record Form : Edit Page (INSERT) </p>
+        <div class="slds-box slds-theme_default">
+            <lightning-record-form object-api-name="Contact" record-id={contactId} columns="2" layout-type="Full"
+                mode="edit">
+            </lightning-record-form>
+        </div>
+    </div>
+    <div class="slds-box slds-theme_warning">
+        <p style="background-color:black; color:white"> Custom Record Form : Detail Page (FETCH/UPDATE) </p>
+        <div class="slds-box slds-theme_default">
+            <lightning-record-form object-api-name="Contact" record-id={conId} columns="2" layout-type="Full"
+                mode="view">
+            </lightning-record-form>
+        </div>
+    </div>
+
+</template>
+
+<!-- 
+    Record Form: Standard Salesforce UI, No complex business logic, no custom validation, no conditional DML, fast development, Automatic CRUID/FLS check
+    Apex: complex business logic, custom validation, conditional DML, bulk processing, external api callouts, addon to the security handling
+-->

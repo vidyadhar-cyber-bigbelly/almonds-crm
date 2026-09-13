@@ -1,0 +1,19 @@
+<template>
+
+    <input
+      type="text"
+      placeholder="Enter your name"
+      oninput={handleInput}
+    />
+
+    <p>Preview: {userName}</p>
+
+    <button onclick={handleSubmit}>Submit</button>
+
+    <p>{message}</p>
+
+    <template if:true={message}>
+        <p>{message}</p>
+    </template>
+
+</template>

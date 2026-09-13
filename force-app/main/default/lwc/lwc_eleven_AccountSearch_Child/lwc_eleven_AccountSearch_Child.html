@@ -1,0 +1,11 @@
+<template>
+
+    <!-- input box where user will search the value -->
+    <!-- onchange: DOM event, occures when user changes the string value -->
+    <!-- {handleChange}: method/handler defined in JS, will be called when 'onchange' event occures, it will create and dispatch the custom event to pass user entered string to the parent -->
+    <div class="slds-box">
+        <p> User has entered: {searchVal} </p>
+        <lightning-input label="Search Account" placeholder="type here..." onchange={handleChange}></lightning-input>
+    </div>
+
+</template>

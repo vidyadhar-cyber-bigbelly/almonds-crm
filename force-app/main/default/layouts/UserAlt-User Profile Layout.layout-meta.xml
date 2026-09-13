@@ -75,7 +75,16 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <relatedList>RelatedGroupList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedFileList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>UserFollowersList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>UserFollowingList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>

@@ -1,0 +1,10 @@
+<template>
+    <h2>Cars Available = {totalCars}</h2>
+
+    <template for:each={cars} for:item="car">
+        <div key={car.id}>
+            <strong>{car.brand} {car.model}</strong> - ₹{car.price} 
+        </div>
+    </template>
+
+</template>

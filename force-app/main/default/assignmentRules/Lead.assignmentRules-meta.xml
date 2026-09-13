@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <assignmentRule>
-        <fullName>Standard</fullName>
-        <active>true</active>
+        <fullName>Lead Rule 1</fullName>
+        <active>false</active>
         <ruleEntry>
-            <assignedTo>maruthi.vidyadhar@ac2.com</assignedTo>
+            <assignedTo>vishalgoud0103@gmail.com.basics</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>Lead.CountryCode</field>
+                <operation>equals</operation>
+                <value>IN</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Lead.CleanStatus</field>
+                <operation>equals</operation>
+                <value>Different</value>
+            </criteriaItems>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Standard</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>epic.f25f87c54d65@orgfarm.salesforce.com</assignedTo>
             <assignedToType>User</assignedToType>
             <criteriaItems>
                 <field>Lead.Country</field>
@@ -13,7 +31,7 @@
             </criteriaItems>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>maruthi.vidyadhar@ac2.com</assignedTo>
+            <assignedTo>epic.f25f87c54d65@orgfarm.salesforce.com</assignedTo>
             <assignedToType>User</assignedToType>
             <criteriaItems>
                 <field>Lead.Country</field>

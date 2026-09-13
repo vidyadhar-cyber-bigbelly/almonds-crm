@@ -1,0 +1,29 @@
+<template>
+    <!-- add delete button in the right-top corner -->
+    <!-- onclick={handleDelete}: called when user clicks on delete button -->
+    <lightning-card>
+        <lightning-button variant="destructive" label="Delete" slot="actions" onclick={handleDelete}></lightning-button>
+    </lightning-card>
+
+    <!-- add datatable -->
+    <!-- key-field="id": to have unique rows/records -->
+    <!-- {opportunityList}: stores data, received from JS -->
+    <!-- {opportunityList.data} -> opportunityList is a wire property => object => {data,error} => to display only data -->
+    <!-- {columnsList}: stores columns<th>, received from JS -->
+    <!-- show-row-number-column: row numbers will be visible in the table -->
+    <!-- by default it has checkboxes, but to add radio button: max-row-selection="1" -->
+    <!-- checkbox: multiple row selection(which salesforce has), radio button: single row selection --> 
+    <!-- onrowselection: DOM event -> occures when we select the row -->
+    <!-- {handleRowSelection}: method defined in JS, called when user selects row, this will fetch record Id of the selected row -->
+    <!-- selected-rows: for highlightning the row by showing blue-coloured pointer -->
+    <!-- {rowSelection}: array defined in JS, we will make it empty post deletion, so it wont select any row --> 
+    <lightning-datatable
+        key-field="id"
+        data={opportunityList.data}
+        show-row-number-column
+        max-row-selection="1"
+        columns={columnsList}
+        onrowselection={handleRowSelection}
+        selected-rows={rowSelection}>
+    </lightning-datatable>
+</template>

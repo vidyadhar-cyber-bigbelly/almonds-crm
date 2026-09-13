@@ -22,6 +22,10 @@
                 <behavior>Edit</behavior>
                 <field>Description</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ExternalReference</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -35,6 +39,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>DrivingDirections</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ShouldSyncWithOci</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

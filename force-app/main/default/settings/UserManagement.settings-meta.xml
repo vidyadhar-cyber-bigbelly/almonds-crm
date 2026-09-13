@@ -5,9 +5,9 @@
     <enableContactlessExternalIdentityUsers>false</enableContactlessExternalIdentityUsers>
     <enableEnhancedConcealPersonalInfo>false</enableEnhancedConcealPersonalInfo>
     <enableEnhancedPermsetMgmt>false</enableEnhancedPermsetMgmt>
-    <enableEnhancedProfileMgmt>false</enableEnhancedProfileMgmt>
+    <enableEnhancedProfileMgmt>true</enableEnhancedProfileMgmt>
     <enableEnhcUiUserAccessPolicies>false</enableEnhcUiUserAccessPolicies>
-    <enableNewProfileUI>true</enableNewProfileUI>
+    <enableNewProfileUI>false</enableNewProfileUI>
     <enableProfileFiltering>false</enableProfileFiltering>
     <enableRestrictEmailDomains>false</enableRestrictEmailDomains>
     <enableScrambleUserData>false</enableScrambleUserData>

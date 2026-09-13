@@ -1,0 +1,7 @@
+<apex:page >
+    <apex:pageBlock title="Hello World Block">
+        <apex:pageBlockSection title="My First Section">
+            Welcome to Visualforce development!
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

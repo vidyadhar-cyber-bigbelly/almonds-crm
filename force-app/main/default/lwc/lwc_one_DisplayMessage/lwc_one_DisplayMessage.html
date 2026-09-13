@@ -1,0 +1,8 @@
+<template>
+    <!-- whatever we define in JS, we use '{}', to use it in html -->
+    <!-- {message}: 'message' property/variable defined in JS -->
+    <p style="background-color:black; color:white"> {message} </p>
+    <!-- onclick: DOM Event/Action, which will occure when we click on the button -->
+    <!-- {handleClick}: when 'onclick' action occures, we will call 'handleClick' method defined in JS, is called as 'Event Handler' -->
+    <lightning-button label="Click ME!!" onclick={handleClick}></lightning-button>
+</template>

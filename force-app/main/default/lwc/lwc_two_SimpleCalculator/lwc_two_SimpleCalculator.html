@@ -1,0 +1,53 @@
+<template>
+    <div class="slds-box">
+
+        <!-- heading -->
+        <div class="Header-Style slds-box">
+            Simple Calculator
+        </div>
+
+        <!-- input box's -->
+        <div class="slds-box">
+            <lightning-input type="number" label="First Number" onchange={handleFirstNum}></lightning-input>
+            <lightning-input type="number" label="Second Number" onchange={handleSecondNum}></lightning-input>
+        </div>
+        
+        <!-- result -->
+        <div class="slds-box">
+            Result 
+            <!-- showRedColouredBadge=false -> 'if condition' becomes false -> result value with red coloured badge wont be visible 
+            -->
+            <!-- showRedColouredBadge=true -> 'if condition' becomes true -> result value with red coloured badge will be visible --> 
+            <!-- "slds-theme_error": shows red-colored badge -->
+            <template lwc:if={showRedColouredBadge}>
+                <lightning-badge class="slds-theme_error" label={res}></lightning-badge>
+            </template>
+        </div>
+        
+        <!-- buttons -->
+        <div class="slds-box">
+            <lightning-button label="Addition" onclick={handleAdd}></lightning-button>
+            <lightning-button label="Substraction" onclick={handleSub}></lightning-button>
+            <lightning-button label="Multiplication" onclick={handleMul}></lightning-button>
+            <lightning-button label="Division" onclick={handleDiv}></lightning-button>
+        </div>
+
+    </div>
+</template>
+
+<!--
+Custom CSS: "Header-Style": class, which we define in custom css 
+SLDS: class="slds-box"
+Base Component: lightning-input, lightning-button
+DOM Events: onchange(it occures when value changes in the text-box), onclick(it occures when button is clicked )
+DOM Event Handlers -> {handleFirstNum}, {handleSecondNum}, {handleAdd}, {handleSub}, {handleMul}, {handleDiv}
+Property/Variable: {res} -> defined in JS to store the result 
+-->
+<!--
+{handleFirstNum}: called when value changes in the First Number text-box, to fetch the updated value
+{handleSecondNum}: called when value changes in the Second Number text-box, to fetch the updated value
+{handleAdd}: called when we clicks on 'Addition' button
+{handleSub}: called when we clicks on 'Substraction' button
+{handleMul}: called when we clicks on 'Multiplication' button
+{handleDiv}: called when we clicks on 'Division' button
+-->

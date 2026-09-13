@@ -1,0 +1,17 @@
+<template>
+    <p> Hi I am Parent </p>
+    <!-- to call the properties, first call the component -->
+    <!-- we will call component in kebab case -->
+    <!-- can pass value directly within tag; ex: message1 -->
+    <!-- can pass value indirectly within tag via JS; ex: message2 -->
+    <c-lwc_nine_-p-t-c_child message1="Good Morning" message2={res}></c-lwc_nine_-p-t-c_child>
+</template>
+
+<!--
+    tabset -> parent(HTML) -> Child(HTML)
+    OUTPUT:
+    Hi I am Parent
+    Hi I am child component
+    Good Morning
+    Good Afternoon
+-->

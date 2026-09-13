@@ -1,0 +1,40 @@
+<template>
+    <!-- we cannot call custom event here, bcoz its outside the shadow DOM boundary area -->
+
+    <!-- orange colour box -->
+    <!-- {msg1}: defined in JS, to store the value received from custom event -->
+    <!-- ondemo={handleDiv}: its allowed bcoz its within boundry area and in the UPWARD direction -->
+    <!-- {handleDiv}: custom event handler, receives the value and store in 'msg1' property -->
+    <div ondemo={handleDiv} class="slds-box slds-theme_warning">
+        Div Has Received: {msg1}
+
+        <!-- green colour box -->
+        <!-- {msg2}: defined in JS, to store the value received from custom event -->
+        <div class="slds-box slds-theme_success">
+            Parent Has Received: {msg2}
+
+            <!-- call the child html, to have white box+button structure -->
+            <!-- call the custom event: 'on'+'demo' => 'ondemo' -->
+            <!-- {handleDemo}: custom event handler, receives the value and store in 'msg2' property -->
+            <c-lwc_ten_child ondemo={handleDemo}></c-lwc_ten_child>
+
+            <!-- we cannot call custom event here, bcoz its BELOW the Shadow DOM Boundry -->
+
+        </div>
+    </div>
+    
+    <!-- we cannot call custom event here, bcoz its BELOW the Shadow DOM Boundry and outside the boundry area -->
+
+</template>
+
+
+<!-- 
+1. Child HTML -> SHADOW DOM
+2. From parent when we call child: <c-lwc_ten_child></<c-lwc_ten_child> -> Shadow DOM Boundary
+3. When we receive the custom event within the shadow DOM boundry, we dont need any permissions. 
+for ex: <c-lwc_ten_child ondemo={handleDemo}></c-lwc_ten_child>
+4. We cannot receive the custom event below the Shadow DOM boundary tag.
+5. We can receive custom event above the Shadow DOM boundary, by giving permission: bubbles:true.
+But it can receive only within boundary area. 
+6. bubbles:true => it shifts/moves the custom event 'UPWARD DIRECTION' from the shadow DOM boundary, within the boundary area.
+-->
