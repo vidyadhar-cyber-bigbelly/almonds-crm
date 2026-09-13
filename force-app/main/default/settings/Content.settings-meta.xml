@@ -18,7 +18,6 @@
     <enableLWCFileUpload>true</enableLWCFileUpload>
     <enableLWCFileUploadInFlows>false</enableLWCFileUploadInFlows>
     <enableLibraryManagedFiles>false</enableLibraryManagedFiles>
-    <enableShowChatterFilesInContent>false</enableShowChatterFilesInContent>
     <enableSiteGuestUserToUploadFiles>false</enableSiteGuestUserToUploadFiles>
     <enableUploadFilesOnAttachments>false</enableUploadFilesOnAttachments>
     <setValidContentTypeForAtchDocDownload>false</setValidContentTypeForAtchDocDownload>
