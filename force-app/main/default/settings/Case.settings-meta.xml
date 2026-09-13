@@ -11,17 +11,18 @@
     <caseFeedReadUnreadLtng>false</caseFeedReadUnreadLtng>
     <caseMergeInLightning>false</caseMergeInLightning>
     <closeCaseThroughStatusChange>false</closeCaseThroughStatusChange>
-    <defaultCaseFeedLayoutOn>false</defaultCaseFeedLayoutOn>
-    <defaultCaseOwner>maruthi.vidyadhar@ac2.com</defaultCaseOwner>
+    <defaultCaseFeedLayoutOn>true</defaultCaseFeedLayoutOn>
+    <defaultCaseOwner>epic.a688beb3fa53@orgfarm.salesforce.com</defaultCaseOwner>
     <defaultCaseOwnerType>User</defaultCaseOwnerType>
-    <defaultCaseUser>maruthi.vidyadhar@ac2.com</defaultCaseUser>
+    <defaultCaseUser>epic.a688beb3fa53@orgfarm.salesforce.com</defaultCaseUser>
     <emailToCase>
         <enableEmailToCase>false</enableEmailToCase>
     </emailToCase>
-    <enableCaseFeed>false</enableCaseFeed>
+    <enableCaseFeed>true</enableCaseFeed>
     <enableCaseSwarming>false</enableCaseSwarming>
-    <enableCollapseEmailThread>false</enableCollapseEmailThread>
+    <enableCollapseEmailThread>true</enableCollapseEmailThread>
     <enableEarlyEscalationRuleTriggers>false</enableEarlyEscalationRuleTriggers>
+    <enableEscalateQfiToCaseInternal>false</enableEscalateQfiToCaseInternal>
     <enableModernSlackSwarming>false</enableModernSlackSwarming>
     <enableMultiLangSolnSrchCSS>false</enableMultiLangSolnSrchCSS>
     <enableMultiLangSolnSrchPKB>false</enableMultiLangSolnSrchPKB>
@@ -37,6 +38,7 @@
     <notifyDefaultCaseOwner>false</notifyDefaultCaseOwner>
     <notifyOwnerOnCaseComment>false</notifyOwnerOnCaseComment>
     <notifyOwnerOnCaseOwnerChange>false</notifyOwnerOnCaseOwnerChange>
+    <omniChnlCaseMrgFix>false</omniChnlCaseMrgFix>
     <rtaCaseComment>false</rtaCaseComment>
     <rtaCaseDescFieldAccess>false</rtaCaseDescFieldAccess>
     <showEmailAttachmentsInCaseAttachmentsRL>true</showEmailAttachmentsInCaseAttachmentsRL>

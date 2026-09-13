@@ -21,7 +21,7 @@
     <isIcorInstApiTrafficBlocked>false</isIcorInstApiTrafficBlocked>
     <isInstancedApiTrafficBlocked>true</isInstancedApiTrafficBlocked>
     <logRedirections>false</logRedirections>
-    <myDomainName>almondcorp2-dev-ed</myDomainName>
+    <myDomainName>orgfarm-7d2a8c7bc9-dev-ed</myDomainName>
     <myDomainSuffix>MySalesforce</myDomainSuffix>
     <onboardCustomerSpecificSuffix>false</onboardCustomerSpecificSuffix>
     <redirectForceComSiteUrls>true</redirectForceComSiteUrls>
