@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">>
 	<types>
-		<members>Inventory__c</members>
-		<members>Product2</members>
-		<name>CustomObject</name>
+		<members>Inventory_Record_Page</members>
+		<members>Product_Record_Page</members>
+		<name>FlexiPage</name>
 	</types>
 	<version>67.0</version>
 </Package>
