@@ -1,5 +1,5 @@
 public without sharing class almd_PaIDashboardController {
-    //wrapper class
+    //wrapper class for payload
     public class SupabaseInventory {
         public String product_code;
         public String product_name;

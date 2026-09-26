@@ -2,49 +2,7 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>almd_PaIDashboardController</members>
-		<members>almd_PaIDashboardControllerTest</members>
         <name>ApexClass</name>
-    </types>
-	<types>
-        <members>almd_Supabase_table_org_config.DEV2</members>
-        <name>CustomMetadata</name>
-    </types>
-    <types>
-        <members>Inventory__c</members>
-        <members>almd_Supabase_table_org_config__mdt</members>
-        <members>Product2</members>
-        <members>almd_Org_Owner_Emails__c</members>
-        <name>CustomObject</name>
-    </types>
-    <types>
-        <members>almd_Product_Inventory_Manager</members>
-        <name>CustomPermission</name>
-    </types>
-    <types>
-        <members>ALMD_Product_and_Inventory_Dashboard</members>
-        <members>Inventory__c</members>
-        <name>CustomTab</name>
-    </types>
-    <types>
-        <members>Supabase_External_Credential</members>
-        <name>ExternalCredential</name>
-    </types>
-    <types>
-        <members>almd_PaIDashboard</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    <types>
-        <members>Supabase</members>
-        <name>NamedCredential</name>
-    </types>
-    <types>
-        <members>ALMD_Product_Inventory_Manager</members>
-        <name>PermissionSet</name>
-    </types>
-    <types>
-        <members>Inventory_Record_Page</members>
-        <members>Product_Record_Page</members>
-        <name>FlexiPage</name>
     </types>
     <version>66.0</version>
 </Package>
