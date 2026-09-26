@@ -31,17 +31,18 @@ jobs:
             exit 1
           fi
 
-          # 1. FIXED: Proper regex to detect Apex Classes or Triggers
-          APEX_CHANGED=$(grep -E '<name>(ApexClass\vert{}ApexTrigger)</name>' "$MANIFEST_PATH" || true)
+          echo "🔍 Scanning manifest file at: $MANIFEST_PATH"
+
+          # 1. BULLETPROOF REGEX: Ignores spaces and capitalization
+          APEX_CHANGED=$(grep -iE '<name>\s*(ApexClass\vert{}ApexTrigger)\s*</name>' "$MANIFEST_PATH" || true)
           
           # 2. Try to get tests from tests.txt
           TEST_CLASSES=$(cat tests.txt 2>/dev/null | tr '\n' ' ' | xargs || true)
           
-          # 3. UPGRADE: If tests.txt is empty, auto-detect test classes from package.xml
+          # 3. BULLETPROOF AUTO-DETECT: Ignores spaces
           if [ -n "$APEX_CHANGED" ] && [ -z "$TEST_CLASSES" ]; then
             echo "⚠️ tests.txt is empty or missing. Auto-detecting test classes from $MANIFEST_PATH..."
-            # Finds any <members> block containing the word 'Test' and formats it into a list
-            TEST_CLASSES=$(grep -E '<members>.*Test.*</members>' "$MANIFEST_PATH" | sed -E 's/.*<members>(.*)<\/members>.*/\1/' | tr '\n' ' ' | xargs || true)
+            TEST_CLASSES=$(grep -iE '<members>\s*.*Test.*\s*</members>' "$MANIFEST_PATH" | sed -E 's/.*<members>\s*(.*)\s*<\/members>.*/\1/i' | tr '\n' ' ' | xargs || true)
           fi
           
           # Temporarily disable crash-on-error so we can capture the JSON even if tests fail
@@ -53,13 +54,11 @@ jobs:
               exit 1
             else
               echo "✅ Apex detected. Validating manifest with tests: $TEST_CLASSES"
-              # FIXED: Added space between --tests and $TEST_CLASSES
               sf project deploy start --target-org TargetOrg --manifest "$MANIFEST_PATH" --dry-run --test-level RunSpecifiedTests --tests $TEST_CLASSES --json > validate-result.json
             fi
           else
             if [ -n "$TEST_CLASSES" ]; then
               echo "✅ No Apex in manifest, but tests provided. Validating with: $TEST_CLASSES"
-              # FIXED: Added space between --tests and $TEST_CLASSES
               sf project deploy start --target-org TargetOrg --manifest "$MANIFEST_PATH" --dry-run --test-level RunSpecifiedTests --tests $TEST_CLASSES --json > validate-result.json
             else
               echo "✅ No Apex in manifest and no tests detected. Validating declarative changes only."
