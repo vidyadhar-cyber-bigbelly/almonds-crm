@@ -34,17 +34,39 @@ jobs:
             exit 1
           fi
 
+          # 1. Detect if Apex Classes or Triggers are in the manifest
+          APEX_CHANGED=$(grep -E '<name>(ApexClass\vert{}ApexTrigger)</name>' "$MANIFEST_PATH" || true)
+          
+          # 2. Try to get tests from tests.txt
           TEST_CLASSES=$(cat tests.txt 2>/dev/null | tr '\n' ' ' | xargs || true)
+          
+          # 3. Auto-detect test classes from package.xml if tests.txt is empty
+          if [ -n "$APEX_CHANGED" ] && [ -z "$TEST_CLASSES" ]; then
+            echo "⚠️ tests.txt is empty or missing. Auto-detecting test classes from $MANIFEST_PATH..."
+            TEST_CLASSES=$(grep -E '<members>.*Test.*</members>' "$MANIFEST_PATH" | sed -E 's/.*<members>(.*)<\/members>.*/\1/' | tr '\n' ' ' | xargs || true)
+          fi
           
           # Temporarily disable crash-on-error so we can capture the JSON even if tests fail
           set +e 
           
-          if [ -n "$TEST_CLASSES" ]; then
-            echo "✅ Deploying manifest with tests: $TEST_CLASSES"
-            sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --test-level RunSpecifiedTests --tests$TEST_CLASSES --json > deploy-result.json
+          if [ -n "$APEX_CHANGED" ]; then
+            if [ -z "$TEST_CLASSES" ]; then
+              echo "❌ ERROR: Apex components found in package.xml, but no test classes could be found in tests.txt or package.xml."
+              exit 1
+            else
+              echo "✅ Apex detected. Deploying manifest with tests: $TEST_CLASSES"
+              # FIXED: Added space between --tests and $TEST_CLASSES
+              sf project deploy start --target-org TargetOrg --manifest "$MANIFEST_PATH" --test-level RunSpecifiedTests --tests $TEST_CLASSES --json > deploy-result.json
+            fi
           else
-            echo "✅ Deploying declarative changes only."
-            sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --json > deploy-result.json
+            if [ -n "$TEST_CLASSES" ]; then
+              echo "✅ No Apex in manifest, but tests provided. Deploying with: $TEST_CLASSES"
+              # FIXED: Added space between --tests and $TEST_CLASSES
+              sf project deploy start --target-org TargetOrg --manifest "$MANIFEST_PATH" --test-level RunSpecifiedTests --tests $TEST_CLASSES --json > deploy-result.json
+            else
+              echo "✅ No Apex in manifest and no tests detected. Deploying declarative changes only."
+              sf project deploy start --target-org TargetOrg --manifest "$MANIFEST_PATH" --json > deploy-result.json
+            fi
           fi
           
           # Re-enable crash-on-error
@@ -57,8 +79,8 @@ jobs:
           cat << 'EOF' > parse-metrics.js
           const fs = require('fs');
           if (!fs.existsSync('deploy-result.json')) {
-             console.log('No deployment results found.');
-             process.exit(0);
+              console.log('No deployment results found.');
+              process.exit(0);
           }
           const data = JSON.parse(fs.readFileSync('deploy-result.json', 'utf8'));
           
