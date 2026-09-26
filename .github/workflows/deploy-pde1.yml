@@ -1,14 +1,11 @@
-name: Deploy to PDE1
+name: Validate PR to DEVINT
 
 on:
   pull_request:
-    types: [ closed ]
-    branches: [ PDE1 ]
+    branches: [ DEVINT ]
 
 jobs:
-  deploy:
-    # Only run if the PR was merged
-    if: github.event.pull_request.merged == true
+  validate-deployment:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -17,12 +14,12 @@ jobs:
       - name: Install Salesforce CLI
         run: npm install -g @salesforce/cli
 
-      - name: Authenticate to PDE1
+      - name: Authenticate to DEVINT
         run: |
           echo "${{ secrets.SFDX_AUTH_URL_PDE1 }}" > sfdx_auth
           sf org login sfdx-url -f sfdx_auth -a TargetOrg
 
-      - name: Evaluate Manifest and Deploy
+      - name: Evaluate Manifest and Run Validation
         run: |
           MANIFEST_PATH="manifest/package.xml"
           if [ ! -f "$MANIFEST_PATH" ]; then
@@ -34,39 +31,59 @@ jobs:
             exit 1
           fi
 
+          echo "🔍 Scanning manifest file at: $MANIFEST_PATH"
+
+          # 1. BULLETPROOF REGEX: Ignores spaces and capitalization
+          APEX_CHANGED=$(grep -iE 'ApexClass|ApexTrigger' "$MANIFEST_PATH" || true)
+          
+          # 2. Try to get tests from tests.txt
           TEST_CLASSES=$(cat tests.txt 2>/dev/null | tr '\n' ' ' | xargs || true)
+          
+          # 3. BULLETPROOF AUTO-DETECT: Ignores spaces
+          if [ -n "$APEX_CHANGED" ] && [ -z "$TEST_CLASSES" ]; then
+            echo "⚠️ tests.txt is empty or missing. Auto-detecting test classes from $MANIFEST_PATH..."
+            TEST_CLASSES=$(grep -iE '<members>\s*.*Test.*\s*</members>' "$MANIFEST_PATH" | sed -E 's/.*<members>\s*(.*)\s*<\/members>.*/\1/i' | tr '\n' ' ' | xargs || true)
+          fi
           
           # Temporarily disable crash-on-error so we can capture the JSON even if tests fail
           set +e 
           
-          if [ -n "$TEST_CLASSES" ]; then
-            echo "✅ Deploying manifest with tests: $TEST_CLASSES"
-            sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --test-level RunSpecifiedTests --tests$TEST_CLASSES --json > deploy-result.json
+          if [ -n "$APEX_CHANGED" ]; then
+            if [ -z "$TEST_CLASSES" ]; then
+              echo "❌ ERROR: Apex components found in package.xml, but no test classes could be found in tests.txt or package.xml."
+              exit 1
+            else
+              echo "✅ Apex detected. Validating manifest with tests: $TEST_CLASSES"
+              sf project deploy start --target-org TargetOrg --manifest "$MANIFEST_PATH" --dry-run --test-level RunSpecifiedTests --tests $TEST_CLASSES --json > validate-result.json
+            fi
           else
-            echo "✅ Deploying declarative changes only."
-            sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --json > deploy-result.json
+            if [ -n "$TEST_CLASSES" ]; then
+              echo "✅ No Apex in manifest, but tests provided. Validating with: $TEST_CLASSES"
+              sf project deploy start --target-org TargetOrg --manifest "$MANIFEST_PATH" --dry-run --test-level RunSpecifiedTests --tests $TEST_CLASSES --json > validate-result.json
+            else
+              echo "✅ No Apex in manifest and no tests detected. Validating declarative changes only."
+              sf project deploy start --target-org TargetOrg --manifest "$MANIFEST_PATH" --dry-run --json > validate-result.json
+            fi
           fi
           
           # Re-enable crash-on-error
           set -e
 
-      - name: Generate Deployment Metrics Dashboard
-        if: always() # Ensures the dashboard generates even if deployment throws an error
+      - name: Generate Validation Metrics Dashboard
+        if: always()
         run: |
-          # Use Node.js to parse the JSON and write a beautiful Markdown summary
           cat << 'EOF' > parse-metrics.js
           const fs = require('fs');
-          if (!fs.existsSync('deploy-result.json')) {
-             console.log('No deployment results found.');
-             process.exit(0);
+          if (!fs.existsSync('validate-result.json')) {
+              console.log('No validation results found.');
+              process.exit(0);
           }
-          const data = JSON.parse(fs.readFileSync('deploy-result.json', 'utf8'));
+          const data = JSON.parse(fs.readFileSync('validate-result.json', 'utf8'));
           
-          let md = '## 🚀 Salesforce Deployment Summary\n\n';
+          let md = '## 🚀 Salesforce Validation Summary\n\n';
           
-          // 1. Handle Top-Level Errors 
           if (data.status !== 0 && data.message) {
-              md += '### ❌ Deployment Error\n';
+              md += '### ❌ Validation Error\n';
               md += '```text\n' + data.message + '\n```\n\n';
           }
           
@@ -74,7 +91,6 @@ jobs:
           const runTestResult = details.runTestResult || {};
           const codeCoverage = runTestResult.codeCoverage || [];
           
-          // 2. Component Summary
           let successes = details.componentSuccesses || [];
           if (!Array.isArray(successes)) successes = [successes];
           
@@ -82,13 +98,12 @@ jobs:
           if (!Array.isArray(failures)) failures = [failures];
           
           md += '### 📦 Component Summary\n';
-          md += '- **Total Components Deployed:** ' + successes.length + '\n';
+          md += '- **Total Components Validated:** ' + successes.length + '\n';
           if (failures.length > 0) {
               md += '- **Total Components Failed:** ' + failures.length + ' ❌\n';
           }
           md += '\n';
           
-          // 3. Test & Coverage Summary
           if (runTestResult.numTestsRun > 0) {
               md += '### 🧪 Apex Test Summary\n';
               md += '- **Tests Run:** ' + runTestResult.numTestsRun + '\n';
@@ -112,20 +127,18 @@ jobs:
               }
           }
           
-          // Inject the markdown into GitHub's built-in UI
           fs.writeFileSync(process.env.GITHUB_STEP_SUMMARY, md, {flag: 'a'});
           EOF
           node parse-metrics.js
 
       - name: Enforce Final Status
         run: |
-          # If the JSON output indicates a failure, physically fail the GitHub action so the red X shows
           cat << 'EOF' > enforce-status.js
           const fs = require('fs');
-          if (fs.existsSync('deploy-result.json')) {
-              const data = JSON.parse(fs.readFileSync('deploy-result.json', 'utf8'));
+          if (fs.existsSync('validate-result.json')) {
+              const data = JSON.parse(fs.readFileSync('validate-result.json', 'utf8'));
               if (data.status !== 0) {
-                  console.error('❌ Deployment failed according to Salesforce CLI.');
+                  console.error('❌ Validation failed according to Salesforce CLI.');
                   process.exit(1);
               }
           }

@@ -1,8 +1,8 @@
-name: Validate PR to PDE1
+name: Validate PR to DEVINT
 
 on:
   pull_request:
-    branches: [ PDE1 ]
+    branches: [ DEVINT ]
 
 jobs:
   validate-deployment:
@@ -14,7 +14,7 @@ jobs:
       - name: Install Salesforce CLI
         run: npm install -g @salesforce/cli
 
-      - name: Authenticate to PDE1
+      - name: Authenticate to DEVINT
         run: |
           echo "${{ secrets.SFDX_AUTH_URL_PDE1 }}" > sfdx_auth
           sf org login sfdx-url -f sfdx_auth -a TargetOrg
@@ -31,27 +31,38 @@ jobs:
             exit 1
           fi
 
-          APEX_CHANGED=$(grep -E '<name>ApexClass</name>\vert{}<name>ApexTrigger</name>'$MANIFEST_PATH || true)
+          echo "🔍 Scanning manifest file at: $MANIFEST_PATH"
+
+          # 1. BULLETPROOF REGEX: Ignores spaces and capitalization
+          APEX_CHANGED=$(grep -iE 'ApexClass|ApexTrigger' "$MANIFEST_PATH" || true)
+          
+          # 2. Try to get tests from tests.txt
           TEST_CLASSES=$(cat tests.txt 2>/dev/null | tr '\n' ' ' | xargs || true)
+          
+          # 3. BULLETPROOF AUTO-DETECT: Ignores spaces
+          if [ -n "$APEX_CHANGED" ] && [ -z "$TEST_CLASSES" ]; then
+            echo "⚠️ tests.txt is empty or missing. Auto-detecting test classes from $MANIFEST_PATH..."
+            TEST_CLASSES=$(grep -iE '<members>\s*.*Test.*\s*</members>' "$MANIFEST_PATH" | sed -E 's/.*<members>\s*(.*)\s*<\/members>.*/\1/i' | tr '\n' ' ' | xargs || true)
+          fi
           
           # Temporarily disable crash-on-error so we can capture the JSON even if tests fail
           set +e 
           
           if [ -n "$APEX_CHANGED" ]; then
             if [ -z "$TEST_CLASSES" ]; then
-              echo "❌ ERROR: Apex components found in package.xml, but tests.txt is empty."
+              echo "❌ ERROR: Apex components found in package.xml, but no test classes could be found in tests.txt or package.xml."
               exit 1
             else
               echo "✅ Apex detected. Validating manifest with tests: $TEST_CLASSES"
-              sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --dry-run --test-level RunSpecifiedTests --tests$TEST_CLASSES --json > validate-result.json
+              sf project deploy start --target-org TargetOrg --manifest "$MANIFEST_PATH" --dry-run --test-level RunSpecifiedTests --tests $TEST_CLASSES --json > validate-result.json
             fi
           else
             if [ -n "$TEST_CLASSES" ]; then
               echo "✅ No Apex in manifest, but tests provided. Validating with: $TEST_CLASSES"
-              sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --dry-run --test-level RunSpecifiedTests --tests$TEST_CLASSES --json > validate-result.json
+              sf project deploy start --target-org TargetOrg --manifest "$MANIFEST_PATH" --dry-run --test-level RunSpecifiedTests --tests $TEST_CLASSES --json > validate-result.json
             else
-              echo "✅ No Apex in manifest and tests.txt is empty. Validating declarative changes only."
-              sf project deploy start --target-org TargetOrg --manifest $MANIFEST_PATH --dry-run --json > validate-result.json
+              echo "✅ No Apex in manifest and no tests detected. Validating declarative changes only."
+              sf project deploy start --target-org TargetOrg --manifest "$MANIFEST_PATH" --dry-run --json > validate-result.json
             fi
           fi
           
@@ -64,8 +75,8 @@ jobs:
           cat << 'EOF' > parse-metrics.js
           const fs = require('fs');
           if (!fs.existsSync('validate-result.json')) {
-             console.log('No validation results found.');
-             process.exit(0);
+              console.log('No validation results found.');
+              process.exit(0);
           }
           const data = JSON.parse(fs.readFileSync('validate-result.json', 'utf8'));
           
