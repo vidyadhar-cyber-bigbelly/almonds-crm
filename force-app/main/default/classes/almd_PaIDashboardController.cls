@@ -10,7 +10,7 @@ public without sharing class almd_PaIDashboardController {
         public String description;
         public boolean active;	
     }
-    // wrapper for result to show on Toast
+    // wrapper for result to show on Toast message
     public class syncResult {
         public Integer insertedCount = 0;
         public Integer updatedCount = 0;
