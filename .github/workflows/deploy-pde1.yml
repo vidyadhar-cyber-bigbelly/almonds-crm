@@ -3,7 +3,7 @@ name: Deploy to DEVINT
 on:
   pull_request:
     types: [ closed ]
-    branches: [ DEVINT ]
+    branches: [ PDE1 ]
 
 jobs:
   deploy:
