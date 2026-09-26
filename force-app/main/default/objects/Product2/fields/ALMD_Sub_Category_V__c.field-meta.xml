@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ALMD_Sub_Category_V__c</fullName>
+    <label>Sub Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Electric Vehicle</fullName>
+                <default>false</default>
+                <label>Electric Vehicle</label>
+            </value>
+            <value>
+                <fullName>Sedan</fullName>
+                <default>false</default>
+                <label>Sedan</label>
+            </value>
+            <value>
+                <fullName>Truck</fullName>
+                <default>false</default>
+                <label>Truck</label>
+            </value>
+            <value>
+                <fullName>SUV</fullName>
+                <default>false</default>
+                <label>SUV</label>
+            </value>
+            <value>
+                <fullName>Brakes &amp; Suspension</fullName>
+                <default>false</default>
+                <label>Brakes &amp; Suspension</label>
+            </value>
+            <value>
+                <fullName>Powertrain &amp; Engine</fullName>
+                <default>false</default>
+                <label>Powertrain &amp; Engine</label>
+            </value>
+            <value>
+                <fullName>Electrical &amp; Lighting</fullName>
+                <default>false</default>
+                <label>Electrical &amp; Lighting</label>
+            </value>
+            <value>
+                <fullName>Connected Services</fullName>
+                <default>false</default>
+                <label>Connected Services</label>
+            </value>
+            <value>
+                <fullName>Extended Warranty</fullName>
+                <default>false</default>
+                <label>Extended Warranty</label>
+            </value>
+            <value>
+                <fullName>Prepaid Maintenance</fullName>
+                <default>false</default>
+                <label>Prepaid Maintenance</label>
+            </value>
+            <value>
+                <fullName>Protection Package</fullName>
+                <default>false</default>
+                <label>Protection Package</label>
+            </value>
+            <value>
+                <fullName>Towing &amp; Cargo</fullName>
+                <default>false</default>
+                <label>Towing &amp; Cargo</label>
+            </value>
+            <value>
+                <fullName>Electronics &amp; Audio</fullName>
+                <default>false</default>
+                <label>Electronics &amp; Audio</label>
+            </value>
+            <value>
+                <fullName>Exterior Accessories</fullName>
+                <default>false</default>
+                <label>Exterior Accessories</label>
+            </value>
+            <value>
+                <fullName>Interior Accessories</fullName>
+                <default>false</default>
+                <label>Interior Accessories</label>
+            </value>
+            <value>
+                <fullName>Transmission Fluid</fullName>
+                <default>false</default>
+                <label>Transmission Fluid</label>
+            </value>
+            <value>
+                <fullName>Motor Oil</fullName>
+                <default>false</default>
+                <label>Motor Oil</label>
+            </value>
+            <value>
+                <fullName>Coolant &amp; Antifreeze</fullName>
+                <default>false</default>
+                <label>Coolant &amp; Antifreeze</label>
+            </value>
+            <value>
+                <fullName>Brake Fluid</fullName>
+                <default>false</default>
+                <label>Brake Fluid</label>
+            </value>
+            <value>
+                <fullName>Cleaners &amp; Additives</fullName>
+                <default>false</default>
+                <label>Cleaners &amp; Additives</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
