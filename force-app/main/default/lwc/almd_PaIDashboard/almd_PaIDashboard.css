@@ -1,0 +1,36 @@
+/* Card Container Adjustments */
+.custom-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 0.5rem; /* Softer, modern corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: white;
+}
+
+/* Interactive Hover Effect */
+.custom-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Force footer to the bottom of the card */
+.custom-footer {
+    margin-top: auto; 
+    border-top: 1px solid #e5e5e5;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+/* Optional: Make the buttons span the full width of the footer for easier clicking */
+.full-width-button {
+    width: 100%;
+    display: block;
+}
+
+/* Target the internal button element to ensure it stretches */
+.full-width-button {
+    --sds-c-button-brand-color-background: #0176D3; /* Standard Salesforce Blue */
+}
