@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>Product2.ALMD_Category_V__c</members>
-        <members>Product2.ALMD_Sub_Category_V__c</members>
-        <name>CustomField</name>
-    </types>
-	<version>67.0</version>
+	<types>
+		<members>almd_PaIDashboardController</members>
+		<members>almd_SyncBatchesTest</members>
+		<members>almd_SyncInventoryBatch</members>
+		<members>almd_SyncProductBatch</members>
+		<members>almd_SyncScheduler</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>Inventory__c.ALMD_ERP_List_Price__c</members>
+		<members>Product2.ALMD_Inventory__c</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>ALMD_Product_Inventory_Manager</members>
+		<name>PermissionSet</name>
+	</types>
+	<version>68.0</version>
 </Package>

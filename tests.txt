@@ -1,0 +1,2 @@
+almd_SyncBatchesTest
+almd_PaIDashboardControllerTest
