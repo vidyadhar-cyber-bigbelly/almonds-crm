@@ -9,6 +9,7 @@ public without sharing class almd_PaIDashboardController {
         public Integer quantity;
         public String description;
         public boolean active;	
+        public double unit_price;
     }
     // wrapper for result to show on Toast
     public class syncResult {
@@ -78,7 +79,7 @@ public without sharing class almd_PaIDashboardController {
         
         Map<String, Inventory__c> existingInventory = new Map<String, Inventory__c>();
         
-        for (Inventory__c inv : [select id,ALMD_EPM_Id_V__c,ALMD_Product_Name_V__c,ALMD_Category_V__c,ALMD_Sub_Category_V__c,ALMD_Manufacturer_V__c,Quantity_On_Hand__c,ALMD_Description_V__c,ALMD_Active_V__c from Inventory__c 
+        for (Inventory__c inv : [select id,ALMD_EPM_Id_V__c,ALMD_Product_Name_V__c,ALMD_Category_V__c,ALMD_Sub_Category_V__c,ALMD_Manufacturer_V__c,Quantity_On_Hand__c,ALMD_Description_V__c,ALMD_Active_V__c,ALMD_ERP_List_Price__c from Inventory__c 
                                  WHERE ALMD_EPM_Id_V__c IN :sbEpmIds]) {
                                      
                                      existingInventory.put(inv.ALMD_EPM_Id_V__c,inv);
@@ -116,6 +117,7 @@ public without sharing class almd_PaIDashboardController {
                 newInventory.ALMD_Description_V__c = item.description;
                 newInventory.ALMD_Active_V__c = item.active;
                 newInventory.ALMD_Last_Synced_V__c = system.now();
+                newInventory.ALMD_ERP_List_Price__c = item.unit_price;
                 recordsToInsert.add(newInventory);
                 continue;
             }
@@ -127,7 +129,7 @@ public without sharing class almd_PaIDashboardController {
             Boolean hasChanged = false;
             
             if (existingRecord.ALMD_Product_Name_V__c!= item.product_Name || existingRecord.Quantity_On_Hand__c != item.quantity || existingRecord.ALMD_Active_V__c != item.active ||
-                existingRecord.ALMD_Category_V__c != item.category || existingRecord.ALMD_Sub_Category_V__c != item.subCategory ) {
+                existingRecord.ALMD_Category_V__c != item.category || existingRecord.ALMD_Sub_Category_V__c != item.subCategory || existingRecord.ALMD_ERP_List_Price__c != item.unit_price ) {
                     
                     hasChanged = true;
                 }
@@ -145,6 +147,7 @@ public without sharing class almd_PaIDashboardController {
             existingRecord.Quantity_On_Hand__c = item.quantity;
             existingRecord.ALMD_Active_V__c = item.active;
             existingRecord.ALMD_Last_Synced_V__c = system.now();
+            existingRecord.ALMD_ERP_List_Price__c = item.unit_price;
             
             recordsToUpdate.add(existingRecord);
         }

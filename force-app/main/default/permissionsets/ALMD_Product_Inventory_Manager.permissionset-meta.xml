@@ -47,6 +47,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Inventory__c.ALMD_ERP_List_Price__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Inventory__c.ALMD_Last_Synced_V__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -63,6 +68,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Inventory__c.ALMD_Sub_Category_V__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Inventory__c.Available_Qty__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -103,6 +113,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Product2.ALMD_EPM_Id_V__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product2.ALMD_Inventory__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
