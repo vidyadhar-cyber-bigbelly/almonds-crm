@@ -162,7 +162,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "✅ ALMOND DEVINT Deployment Successful - PR #${{ github.event.pull_request.number }}"
-          to: personal.vidyadhar@gmail.com, vishalgoud0103@gmail.com, jaswanth.va16@gmail.com, kanthshree620@gmail.com
+          to: ${{ secrets.DEV_TEAM_EMAILS }}
           from: GitHub Deployer Bot
           body: |
             The Salesforce deployment to DEVINT for PR #${{ github.event.pull_request.number }} is complete.
