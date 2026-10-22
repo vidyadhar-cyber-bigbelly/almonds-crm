@@ -151,3 +151,26 @@ jobs:
           }
           EOF
           node enforce-status.js
+
+      - name: Send Email Notification on Success
+        if: success() # Only runs if all previous steps (including Enforce Final Status) pass
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.zoho.in # Replace with your SMTP server (e.g., smtp.office365.com)
+          server_port: 465
+          secure: true
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "✅ ALMOND DEVINT Deployment Successful - PR #${{ github.event.pull_request.number }}"
+          to: personal.vidyadhar@gmail.com, vishalgoud0103@gmail.com, jaswanth.va16@gmail.com, kanthshree620@gmail.com
+          from: GitHub Deployer Bot
+          body: |
+            The Salesforce deployment to DEVINT for PR #${{ github.event.pull_request.number }} is complete.
+            
+            Job Status: ${{ job.status }}
+            Deployment Executed By: ${{ github.actor }}
+            PR Merged By: ${{ github.event.pull_request.user.login }}
+            Target Branch: PDE1
+            
+            View the detailed deployment metrics dashboard here:
+            ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
