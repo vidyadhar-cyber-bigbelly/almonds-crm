@@ -1,6 +1,11 @@
-public without sharing class almd_standardPricebookEntryBatch implements Database.Batchable<sObject> {
+public without sharing class almd_standardPricebookEntryBatch implements Database.Batchable<sObject>, Schedulable {
     private Id standardPricebookId;
-    
+    //SCHEDULER
+    public void execute(SchedulableContext sc ){
+        almd_standardPricebookEntryBatch batch = new almd_standardPricebookEntryBatch();
+        Database.executeBatch(batch, 200);
+    }
+    //BATCH
     public almd_standardPricebookEntryBatch() {
         if (Test.isRunningTest()) {
             standardPricebookId = Test.getStandardPricebookId();
