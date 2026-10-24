@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Oppty_Pipeline__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(
+  StageName,
+  &quot;Qualify&quot;, &quot;Open&quot;,
+  &quot;Define&quot;, &quot;Open&quot;,
+  &quot;Develop&quot;, &quot;Open&quot;,
+  &quot;Design&quot;, &quot;Design&quot;, 
+   &quot;Lost&quot;, &quot;Lost&quot;,
+  &quot;Design won&quot;, &quot;Won&quot;,
+&quot;&quot;
+
+)</formula>
+    <label>Oppty Pipeline</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

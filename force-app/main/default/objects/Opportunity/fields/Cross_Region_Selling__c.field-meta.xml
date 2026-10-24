@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cross_Region_Selling__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Check this if Opportunity suits for cross region selling.</inlineHelpText>
+    <label>Cross-Region Selling</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

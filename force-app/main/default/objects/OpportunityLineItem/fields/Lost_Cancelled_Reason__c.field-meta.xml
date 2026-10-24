@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lost_Cancelled_Reason__c</fullName>
+    <label>Lost/Cancelled Reason</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cancelled - Customer lost interest</fullName>
+                <default>false</default>
+                <label>Cancelled - Customer lost interest</label>
+            </value>
+            <value>
+                <fullName>Cancelled - No Longer required</fullName>
+                <default>false</default>
+                <label>Cancelled - No Longer required</label>
+            </value>
+            <value>
+                <fullName>Cancelled - Competition</fullName>
+                <default>false</default>
+                <label>Cancelled - Competition</label>
+            </value>
+            <value>
+                <fullName>Lost - High Bid</fullName>
+                <default>false</default>
+                <label>Lost - High Bid</label>
+            </value>
+            <value>
+                <fullName>Lost - Less Discount</fullName>
+                <default>false</default>
+                <label>Lost - Less Discount</label>
+            </value>
+            <value>
+                <fullName>Lost - Delay in delivery</fullName>
+                <default>false</default>
+                <label>Lost - Delay in delivery</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <valueName>Cancelled - Customer lost interest</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <valueName>Cancelled - No Longer required</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <valueName>Cancelled - Competition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cancelled</controllingFieldValue>
+            <controllingFieldValue>Lost</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Lost</controllingFieldValue>
+            <valueName>Lost - High Bid</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Lost</controllingFieldValue>
+            <valueName>Lost - Less Discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Lost</controllingFieldValue>
+            <valueName>Lost - Delay in delivery</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>
