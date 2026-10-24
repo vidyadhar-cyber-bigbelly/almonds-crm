@@ -254,23 +254,4 @@
             <default>false</default>
         </values>
     </picklistValues>
-    <picklistValues>
-        <picklist>Type</picklist>
-        <values>
-            <fullName>Design - Grade 1</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Design - Grade 2</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Design - Grade 3</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Design - Undefined Grade</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
 </RecordType>

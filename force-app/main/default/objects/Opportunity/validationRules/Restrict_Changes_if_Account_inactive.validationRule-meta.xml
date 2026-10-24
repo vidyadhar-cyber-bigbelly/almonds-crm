@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Restrict_Changes_if_Account_inactive</fullName>
-    <active>true</active>
-    <errorConditionFormula>if($Setup.Bypass_Validations__c.Bypass__c,false,Account.Active__c = false)</errorConditionFormula>
-    <errorMessage>The account on this opportunity is inactive.</errorMessage>
-</ValidationRule>
