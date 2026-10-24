@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Market__c</fullName>
+    <label>Market</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+                <label>Agriculture</label>
+            </value>
+            <value>
+                <fullName>Automotive</fullName>
+                <default>false</default>
+                <label>Automotive</label>
+            </value>
+            <value>
+                <fullName>Aviation</fullName>
+                <default>false</default>
+                <label>Aviation</label>
+            </value>
+            <value>
+                <fullName>Cities Infrastructure</fullName>
+                <default>false</default>
+                <label>Cities Infrastructure</label>
+            </value>
+            <value>
+                <fullName>Construction</fullName>
+                <default>false</default>
+                <label>Construction</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Energy</fullName>
+                <default>false</default>
+                <label>Energy</label>
+            </value>
+            <value>
+                <fullName>Entertainment Industry</fullName>
+                <default>false</default>
+                <label>Entertainment Industry</label>
+            </value>
+            <value>
+                <fullName>Govt. Services</fullName>
+                <default>false</default>
+                <label>Govt. Services</label>
+            </value>
+            <value>
+                <fullName>Health Care</fullName>
+                <default>false</default>
+                <label>Health Care</label>
+            </value>
+            <value>
+                <fullName>Space</fullName>
+                <default>false</default>
+                <label>Space</label>
+            </value>
+            <value>
+                <fullName>Sports</fullName>
+                <default>false</default>
+                <label>Sports</label>
+            </value>
+            <value>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+                <label>Telecommunications</label>
+            </value>
+            <value>
+                <fullName>Transport</fullName>
+                <default>false</default>
+                <label>Transport</label>
+            </value>
+            <value>
+                <fullName>Undefined</fullName>
+                <default>false</default>
+                <label>Undefined</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Define_Stagegates</fullName>
+    <active>true</active>
+    <description>Restricts the Opportunities movement from Define</description>
+    <errorConditionFormula>And(
+ ISCHANGED(StageName),
+ ISPICKVAL(PRIORVALUE(StageName),&quot;Define&quot;) ,
+ OR(ISPICKVAL(StageName,&quot;Develop&quot;),ISPICKVAL(StageName,&quot;Design&quot;)),   
+ OR(ISBLANK( Description),ISBLANK(Status_Update__c),ISBLANK( contact_role_count__c ))
+ )</errorConditionFormula>
+    <errorMessage>Please fill Description ,status update and add at least one Contact Role on opportunity before going to next Stages.</errorMessage>
+</ValidationRule>
