@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Architecture__c</fullName>
+    <label>Architecture</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ARM</fullName>
+                <default>false</default>
+                <label>ARM</label>
+            </value>
+            <value>
+                <fullName>CRM</fullName>
+                <default>false</default>
+                <label>CRM</label>
+            </value>
+            <value>
+                <fullName>Beats</fullName>
+                <default>false</default>
+                <label>Beats</label>
+            </value>
+            <value>
+                <fullName>Prospector</fullName>
+                <default>false</default>
+                <label>Prospector</label>
+            </value>
+            <value>
+                <fullName>XLRMS</fullName>
+                <default>false</default>
+                <label>XLRMS</label>
+            </value>
+            <value>
+                <fullName>8-bit</fullName>
+                <default>false</default>
+                <label>8-bit</label>
+            </value>
+            <value>
+                <fullName>16-bit</fullName>
+                <default>false</default>
+                <label>16-bit</label>
+            </value>
+            <value>
+                <fullName>Quad-core</fullName>
+                <default>false</default>
+                <label>Quad-core</label>
+            </value>
+            <value>
+                <fullName>Dual-core</fullName>
+                <default>false</default>
+                <label>Dual-core</label>
+            </value>
+            <value>
+                <fullName>Dual-core Sluggish</fullName>
+                <default>false</default>
+                <label>Dual-core Sluggish</label>
+            </value>
+            <value>
+                <fullName>Power Handler level 24</fullName>
+                <default>false</default>
+                <label>Power Handler level 24</label>
+            </value>
+            <value>
+                <fullName>Power Handler level 55</fullName>
+                <default>false</default>
+                <label>Power Handler level 55</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pro_Rated_Value_USD__c</fullName>
+    <externalId>false</externalId>
+    <formula>&quot;$&quot; &amp; TEXT(
+   ROUND(
+      (( Amount  / 12) * (12 - MONTH(CloseDate))) / CURRENCYRATE(&quot;USD&quot;),
+      2
+   )
+)</formula>
+    <label>Pro Rated Value USD</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

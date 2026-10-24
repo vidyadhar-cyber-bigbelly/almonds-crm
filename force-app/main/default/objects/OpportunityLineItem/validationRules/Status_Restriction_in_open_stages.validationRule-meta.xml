@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Restriction_in_open_stages</fullName>
+    <active>true</active>
+    <description>restricts user from setting the status to Win approved and WIn submitted</description>
+    <errorConditionFormula>AND(
+ ISCHANGED( Status__c ),
+ OR(ISPICKVAL( Status__c , &quot;Win Submitted&quot;),ISPICKVAL(Status__c , &quot;Win Approved&quot;)), 
+ Not(Opportunity.Oppty_Pipeline__c == &apos;Design&apos;) 
+
+
+)</errorConditionFormula>
+    <errorMessage>Product status can not be set to Win Submitted or Win approved in the current opportunity stage. Please review with your Admin.</errorMessage>
+</ValidationRule>

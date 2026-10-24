@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Co_Selling</fullName>
+    <active>true</active>
+    <businessProcess>Opportunity Sales Process</businessProcess>
+    <label>Co-Selling</label>
+    <picklistValues>
+        <picklist>Architecture__c</picklist>
+        <values>
+            <fullName>16-bit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8-bit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ARM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Beats</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CRM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dual-core</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dual-core Sluggish</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Power Handler level 24</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Power Handler level 55</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quad-core</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XLRMS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DeliveryInstallationStatus__c</picklist>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yet to begin</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone Inquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Purchased List</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Market__c</picklist>
+        <values>
+            <fullName>Agriculture</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Automotive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aviation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cities Infrastructure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Construction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Energy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Entertainment Industry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Govt%2E Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Health Care</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Space</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sports</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telecommunications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transport</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Undefined</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Product_Application__c</picklist>
+        <values>
+            <fullName>Antennas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Emerald Stoners</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enterprises</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Examplery Institutions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grade 1 Wires</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grade 2 Wires</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>InfraRed motors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Network towers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proactive WiFi</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sensors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WiFi 69</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Product_segment__c</picklist>
+        <values>
+            <fullName>Client Computing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IOT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Networking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Road Ways</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Software %26 Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transportation</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Deal - Grade 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deal - Grade 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deal - Grade 3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deal - Undefined Grade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Design - Grade 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Design - Grade 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Design - Grade 3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Design - Undefined Grade</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
