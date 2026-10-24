@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_segment__c</fullName>
+    <inlineHelpText>Indicates where the opportunity will provide its selling</inlineHelpText>
+    <label>Product segment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Client Computing</fullName>
+                <default>false</default>
+                <label>Client Computing</label>
+            </value>
+            <value>
+                <fullName>Data Center</fullName>
+                <default>false</default>
+                <label>Data Center</label>
+            </value>
+            <value>
+                <fullName>IOT</fullName>
+                <default>false</default>
+                <label>IOT</label>
+            </value>
+            <value>
+                <fullName>Networking</fullName>
+                <default>false</default>
+                <label>Networking</label>
+            </value>
+            <value>
+                <fullName>Road Ways</fullName>
+                <default>false</default>
+                <label>Road Ways</label>
+            </value>
+            <value>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+                <label>Transportation</label>
+            </value>
+            <value>
+                <fullName>Software &amp; Services</fullName>
+                <default>false</default>
+                <label>Software &amp; Services</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

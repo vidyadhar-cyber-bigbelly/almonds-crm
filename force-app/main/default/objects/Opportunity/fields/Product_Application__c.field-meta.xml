@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Application__c</fullName>
+    <label>Product Application</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Product_segment__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Enterprises</fullName>
+                <default>false</default>
+                <label>Enterprises</label>
+            </value>
+            <value>
+                <fullName>Antennas</fullName>
+                <default>false</default>
+                <label>Antennas</label>
+            </value>
+            <value>
+                <fullName>Network towers</fullName>
+                <default>false</default>
+                <label>Network towers</label>
+            </value>
+            <value>
+                <fullName>Sensors</fullName>
+                <default>false</default>
+                <label>Sensors</label>
+            </value>
+            <value>
+                <fullName>InfraRed motors</fullName>
+                <default>false</default>
+                <label>InfraRed motors</label>
+            </value>
+            <value>
+                <fullName>Grade 1 Wires</fullName>
+                <default>false</default>
+                <label>Grade 1 Wires</label>
+            </value>
+            <value>
+                <fullName>Grade 2 Wires</fullName>
+                <default>false</default>
+                <label>Grade 2 Wires</label>
+            </value>
+            <value>
+                <fullName>Examplery Institutions</fullName>
+                <default>false</default>
+                <label>Examplery Institutions</label>
+            </value>
+            <value>
+                <fullName>Proactive WiFi</fullName>
+                <default>false</default>
+                <label>Proactive WiFi</label>
+            </value>
+            <value>
+                <fullName>WiFi 69</fullName>
+                <default>false</default>
+                <label>WiFi 69</label>
+            </value>
+            <value>
+                <fullName>Emerald Stoners</fullName>
+                <default>false</default>
+                <label>Emerald Stoners</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Client Computing</controllingFieldValue>
+            <controllingFieldValue>Networking</controllingFieldValue>
+            <controllingFieldValue>Road Ways</controllingFieldValue>
+            <valueName>Network towers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Client Computing</controllingFieldValue>
+            <controllingFieldValue>Software &amp; Services</controllingFieldValue>
+            <valueName>Proactive WiFi</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Client Computing</controllingFieldValue>
+            <controllingFieldValue>Software &amp; Services</controllingFieldValue>
+            <valueName>WiFi 69</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Data Center</controllingFieldValue>
+            <controllingFieldValue>Road Ways</controllingFieldValue>
+            <controllingFieldValue>Transportation</controllingFieldValue>
+            <valueName>Enterprises</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Data Center</controllingFieldValue>
+            <controllingFieldValue>IOT</controllingFieldValue>
+            <controllingFieldValue>Networking</controllingFieldValue>
+            <controllingFieldValue>Software &amp; Services</controllingFieldValue>
+            <valueName>Sensors</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Data Center</controllingFieldValue>
+            <controllingFieldValue>Road Ways</controllingFieldValue>
+            <controllingFieldValue>Transportation</controllingFieldValue>
+            <valueName>Examplery Institutions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Data Center</controllingFieldValue>
+            <controllingFieldValue>Road Ways</controllingFieldValue>
+            <controllingFieldValue>Transportation</controllingFieldValue>
+            <valueName>Emerald Stoners</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>IOT</controllingFieldValue>
+            <controllingFieldValue>Road Ways</controllingFieldValue>
+            <valueName>Antennas</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>IOT</controllingFieldValue>
+            <controllingFieldValue>Transportation</controllingFieldValue>
+            <valueName>InfraRed motors</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Networking</controllingFieldValue>
+            <valueName>Grade 1 Wires</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Networking</controllingFieldValue>
+            <controllingFieldValue>Software &amp; Services</controllingFieldValue>
+            <valueName>Grade 2 Wires</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

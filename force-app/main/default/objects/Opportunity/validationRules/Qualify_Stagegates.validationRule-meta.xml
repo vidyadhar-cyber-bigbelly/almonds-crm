@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Qualify_Stagegates</fullName>
+    <active>true</active>
+    <description>Restricts the Opportunities movement from Qualify</description>
+    <errorConditionFormula>And(
+ RecordType.Name = &quot;Design&quot;,
+ ISCHANGED(StageName),
+ ISPICKVAL(PRIORVALUE(StageName),&quot;Qualify&quot;) ,
+ OR(ISPICKVAL(StageName,&quot;Define&quot;),ISPICKVAL(StageName,&quot;Develop&quot;),ISPICKVAL(StageName,&quot;Design&quot;)), 
+ OR(ISBLANK( Description),ISBLANK(Description))
+ 
+)</errorConditionFormula>
+    <errorMessage>Please fill Description and status update before going to next Stages.</errorMessage>
+</ValidationRule>
