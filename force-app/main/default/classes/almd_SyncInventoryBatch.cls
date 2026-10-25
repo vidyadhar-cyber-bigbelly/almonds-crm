@@ -1,6 +1,6 @@
 public without sharing class almd_SyncInventoryBatch implements Database.Batchable<Integer>, Database.AllowsCallouts, Database.Stateful {
     
-    public almd_PaIDashboardController.SyncResult result = new almd_PaIDashboardController.SyncResult();
+    public almd_paiBatchSyncHelper.SyncResult result = new almd_paiBatchSyncHelper.SyncResult();
     private Integer pageSize = 1000; // Supabase default max rows per request
     
     public Iterable<Integer> start(Database.BatchableContext bc) {
@@ -74,8 +74,8 @@ public without sharing class almd_SyncInventoryBatch implements Database.Batchab
             return;
         }
         
-        List<almd_PaIDashboardController.SupabaseInventory> supabaseRecords = 
-            (List<almd_PaIDashboardController.SupabaseInventory>) JSON.deserialize(res.getBody(), List<almd_PaIDashboardController.SupabaseInventory>.class);
+        List<almd_paiBatchSyncHelper.SupabaseInventory> supabaseRecords = 
+            (List<almd_paiBatchSyncHelper.SupabaseInventory>) JSON.deserialize(res.getBody(), List<almd_paiBatchSyncHelper.SupabaseInventory>.class);
         
         if (supabaseRecords == null || supabaseRecords.isEmpty()) {
             return;
@@ -85,9 +85,9 @@ public without sharing class almd_SyncInventoryBatch implements Database.Batchab
         processRecords(supabaseRecords); 
     }
     
-    private void processRecords(List<almd_PaIDashboardController.SupabaseInventory> supabaseRecords) {
+    private void processRecords(List<almd_paiBatchSyncHelper.SupabaseInventory> supabaseRecords) {
         Set<String> sbEpmIds = new Set<String>();
-        for (almd_PaIDashboardController.SupabaseInventory item : supabaseRecords) {
+        for (almd_paiBatchSyncHelper.SupabaseInventory item : supabaseRecords) {
             if (item.product_code != null) {
                 sbEpmIds.add(String.valueOf(item.product_code));
             } else {
@@ -110,7 +110,7 @@ public without sharing class almd_SyncInventoryBatch implements Database.Batchab
         List<Inventory__c> recordsToInsert = new List<Inventory__c>();
         List<Inventory__c> recordsToUpdate = new List<Inventory__c>();
         
-        for (almd_PaIDashboardController.SupabaseInventory item : supabaseRecords) {
+        for (almd_paiBatchSyncHelper.SupabaseInventory item : supabaseRecords) {
             if (item.product_code == null) continue;
             
             String supabaseEpmId = String.valueOf(item.product_code);
@@ -198,7 +198,7 @@ public without sharing class almd_SyncInventoryBatch implements Database.Batchab
             }
         }
         
-        //almd_PaIDashboardController.sendCompletionEmail(message, 'Inventory ');
+        //almd_paiBatchSyncHelper.sendCompletionEmail(message, 'Inventory ');
         
         // Chain the Product Sync
         //Database.executeBatch(new almd_SyncProductBatch(), 200);

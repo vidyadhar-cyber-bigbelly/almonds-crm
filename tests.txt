@@ -1,1 +1,1 @@
-almd_standardPricebookEntryBatchTest
+almd_SyncBatchesTest
